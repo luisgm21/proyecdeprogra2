@@ -6,7 +6,9 @@ public class Empleado extends Persona{
     private Integer idempleado;
     private float sueldo;
     
-    
+    public Empleado(){
+        
+    }
     public Empleado(String nombre, String dni, String telefono, String direccion, String edad, Integer idempleado, float sueldo){
         super(nombre, dni, telefono, direccion, edad);
         this.idempleado=idempleado;
