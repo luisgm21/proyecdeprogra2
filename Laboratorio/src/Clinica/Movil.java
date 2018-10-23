@@ -2,7 +2,7 @@
 package Clinica;
 
 
-public abstract class Movil extends Sanatorio{
+public abstract class Movil {
     
     
 }
