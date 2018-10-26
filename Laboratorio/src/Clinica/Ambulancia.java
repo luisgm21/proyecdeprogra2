@@ -2,6 +2,10 @@
 package Clinica;
 
 
-public class Ambulancia {
+public class Ambulancia extends Movil {
     
+    
+    public Ambulancia(String marca,String modelo,String año,String patente){
+        super(marca,modelo,año,patente);
+}
 }
