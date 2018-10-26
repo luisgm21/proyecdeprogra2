@@ -16,5 +16,6 @@ public class Afiliado extends Persona{
     public Afiliado(String nombre, String dni, String telefono, String direccion, String edad){
         super(nombre,dni,telefono,direccion,edad);
     }
-    }
+    
+}
 
