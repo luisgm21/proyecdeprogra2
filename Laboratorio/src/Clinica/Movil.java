@@ -18,4 +18,25 @@ public abstract class Movil {
         this.patente=patente;
     }
 
+    public Movil(String patente) {
+        this.patente = patente;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public String getAño() {
+        return año;
+    }
+
+    public String getPatente() {
+        return patente;
+    }
+
+    
 }

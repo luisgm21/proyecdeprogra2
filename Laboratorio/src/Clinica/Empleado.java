@@ -16,6 +16,11 @@ public class Empleado extends Persona{
         
     }
 
+    public Empleado(String nombre) {
+        super(nombre);
+    }
+    
+
     
     public Integer getIdempleado() {
         return idempleado;
