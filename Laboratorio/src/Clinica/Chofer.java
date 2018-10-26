@@ -7,9 +7,11 @@ public class Chofer extends Empleado{
     public Chofer(){
         
     }
-    public Chofer(String nombre, String dni, String telefono, String direccion, String edad,Integer idempleado,float sueldo){
-        super(nombre,dni,telefono,direccion,edad,idempleado,sueldo);
-    }         
+
+    public Chofer(Integer idempleado, float sueldo, String cuadrilla, String nombre, String dni, String telefono, String direccion, String edad) {
+        super(idempleado, sueldo, cuadrilla, nombre, dni, telefono, direccion, edad);
+    }
+          
 
     public Chofer(String nombre) {
         super(nombre);

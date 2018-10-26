@@ -14,9 +14,10 @@ public class Cuadrilla {
     Enfermero enfe = new Enfermero("Raul");
     Medico medi = new Medico("Luis");
     
-  
+      
     
-    public void cargaCuadrilla(){
+    
+    /*public void cargaCuadrilla(){
         lista.add(cho.getNombre());
         lista.add(medi.getNombre());
         lista.add(enfe.getNombre());
@@ -25,7 +26,7 @@ public class Cuadrilla {
         System.out.println(cuadrilla);
         
         
-    }
+    }*/
     
     
 }

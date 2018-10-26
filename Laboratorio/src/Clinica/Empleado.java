@@ -5,16 +5,23 @@ public class Empleado extends Persona{
     
     private Integer idempleado;
     private float sueldo;
-    
+    private String cuadrilla;
     public Empleado(){
         
     }
-    public Empleado(String nombre, String dni, String telefono, String direccion, String edad, Integer idempleado, float sueldo){
+
+    public Empleado(Integer idempleado, float sueldo, String cuadrilla, String nombre, String dni, String telefono, String direccion, String edad) {
         super(nombre, dni, telefono, direccion, edad);
-        this.idempleado=idempleado;
-        this.sueldo=sueldo;
-        
+        this.idempleado = idempleado;
+        this.sueldo = sueldo;
+        this.cuadrilla = cuadrilla;
     }
+    
+    
+    public Empleado(String nombre, String dni, String telefono, String direccion, String edad) {
+        super(nombre, dni, telefono, direccion, edad);
+    }
+    
 
     public Empleado(String nombre) {
         super(nombre);
@@ -38,6 +45,11 @@ public class Empleado extends Persona{
     public void setSueldo(float sueldo) {
         this.sueldo = sueldo;
     }
+
+    public String getCuadrilla() {
+        return cuadrilla;
+    }
+    
      
 }
 
