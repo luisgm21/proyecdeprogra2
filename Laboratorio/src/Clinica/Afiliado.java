@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 
 
 public class Afiliado extends Persona{
-    public static int numafiliado=-1;
+    private int numafiliado;
     private LocalDateTime fechaultpago;
     private ArrayList<Persona>familia=new ArrayList();
     private int numdefam;
@@ -62,7 +62,6 @@ public class Afiliado extends Persona{
         super.setEdad(Integer.parseInt(AltaAfiliados.eda.getText()));
         super.setTelefono(AltaAfiliados.telf.getText());
         super.setDni(AltaAfiliados.Dni.getText());
-        numafiliado ++;
     }
     public void ImprimirDatos(){
         JOptionPane.showMessageDialog(null,"El Nombre del afiliado es: "+nombre+"\n Su edad es: "+edad+"\n su Direccion: "+direccion+"\n su dni: "+dni+"\n Su telefono: "+telefono+"\n Num afiliado"+numafiliado,"Mensaje" , JOptionPane.PLAIN_MESSAGE);
