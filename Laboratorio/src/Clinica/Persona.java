@@ -3,16 +3,16 @@ package Clinica;
 
 
 public class Persona{
-   private String nombre;
-   private String dni;
-   private String telefono;
-   private String direccion;
-   private String edad;
+   String nombre;
+   String dni;
+   String telefono;
+   String direccion;
+   Integer edad;
    
    public Persona(){
        
    }
-   public Persona(String nombre, String dni, String telefono, String direccion, String edad){
+   public Persona(String nombre, String dni, String telefono, String direccion, Integer edad){
        this.nombre=nombre;
        this.dni=dni;
        this.telefono=telefono;
@@ -57,11 +57,11 @@ public class Persona{
         this.direccion = direccion;
     }
 
-    public String getEdad() {
+    public Integer getEdad() {
         return edad;
     }
 
-    public void setEdad(String edad) {
+    public void setEdad(Integer edad) {
         this.edad = edad;
     }
     

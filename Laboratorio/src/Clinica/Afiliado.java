@@ -1,25 +1,71 @@
 
 package Clinica;
 
+import Grafica.AltaAfiliados;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public class Afiliado extends Persona{
-    private int numafiliado;
+    public static int numafiliado=-1;
     private LocalDateTime fechaultpago;
     private ArrayList<Persona>familia=new ArrayList();
     private int numdefam;
     private PagoAfiliado pago;
+    
     public Afiliado(){
         
     }
-    public Afiliado(String nombre, String dni, String telefono, String direccion, String edad){
+
+    public int getNumafiliado() {
+        return numafiliado;
+    }
+
+    public void setNumafiliado(int numafiliado) {
+        this.numafiliado = numafiliado;
+    }
+
+    public LocalDateTime getFechaultpago() {
+        return fechaultpago;
+    }
+
+    public void setFechaultpago(LocalDateTime fechaultpago) {
+        this.fechaultpago = fechaultpago;
+    }
+
+    public int getNumdefam() {
+        return numdefam;
+    }
+
+    public void setNumdefam(int numdefam) {
+        this.numdefam = numdefam;
+    }
+
+    public PagoAfiliado getPago() {
+        return pago;
+    }
+
+    public void setPago(PagoAfiliado pago) {
+        this.pago = pago;
+    }
+    public Afiliado(String nombre, String dni, String telefono, String direccion, Integer edad){
         super(nombre,dni,telefono,direccion,edad);
     }
     public void agregarFamiliar(Persona familiar){
         familia.add(familiar);
         numdefam=familia.size();
+    }
+    public void CapturarDatos(){
+        super.setNombre(AltaAfiliados.nomb.getText());
+        super.setDireccion(AltaAfiliados.direc.getText());
+        super.setEdad(Integer.parseInt(AltaAfiliados.eda.getText()));
+        super.setTelefono(AltaAfiliados.telf.getText());
+        super.setDni(AltaAfiliados.Dni.getText());
+        numafiliado ++;
+    }
+    public void ImprimirDatos(){
+        JOptionPane.showMessageDialog(null,"El Nombre del afiliado es: "+nombre+"\n Su edad es: "+edad+"\n su Direccion: "+direccion+"\n su dni: "+dni+"\n Su telefono: "+telefono+"\n Num afiliado"+numafiliado,"Mensaje" , JOptionPane.PLAIN_MESSAGE);
     }
 }
 

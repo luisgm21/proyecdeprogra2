@@ -10,7 +10,7 @@ public class Empleado extends Persona{
         
     }
 
-    public Empleado(Integer idempleado, float sueldo, String cuadrilla, String nombre, String dni, String telefono, String direccion, String edad) {
+    public Empleado(Integer idempleado, float sueldo, String cuadrilla, String nombre, String dni, String telefono, String direccion, Integer edad) {
         super(nombre, dni, telefono, direccion, edad);
         this.idempleado = idempleado;
         this.sueldo = sueldo;
@@ -18,7 +18,7 @@ public class Empleado extends Persona{
     }
     
     
-    public Empleado(String nombre, String dni, String telefono, String direccion, String edad) {
+    public Empleado(String nombre, String dni, String telefono, String direccion, Integer edad) {
         super(nombre, dni, telefono, direccion, edad);
     }
     

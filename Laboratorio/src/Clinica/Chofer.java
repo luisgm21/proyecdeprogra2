@@ -8,7 +8,7 @@ public class Chofer extends Empleado{
         
     }
 
-    public Chofer(Integer idempleado, float sueldo, String cuadrilla, String nombre, String dni, String telefono, String direccion, String edad) {
+    public Chofer(Integer idempleado, float sueldo, String cuadrilla, String nombre, String dni, String telefono, String direccion, Integer edad) {
         super(idempleado, sueldo, cuadrilla, nombre, dni, telefono, direccion, edad);
     }
           
