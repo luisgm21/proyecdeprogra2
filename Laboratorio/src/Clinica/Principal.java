@@ -11,7 +11,7 @@ public class Principal {
         Principal1 prin = new Principal1();
         prin.setVisible(true);
         
-        
+       
     /*//Ambulancia ambu = new Ambulancia("AC 380 KK");         
     ArrayList lista = new ArrayList();//vectores    
     Chofer cho = new Chofer();

@@ -1,14 +1,20 @@
 
 package Grafica;
 
+import Clinica.SolicitudEm;
+import javax.swing.JOptionPane;
+
 
 public class Emergencia extends javax.swing.JDialog {
 
-    
+    private SolicitudEm emergencia;
     public Emergencia(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
+        this.emergencia=emergencia;
+        this.emergencia=new SolicitudEm();
+        
     }
 
     
@@ -63,6 +69,11 @@ public class Emergencia extends javax.swing.JDialog {
         });
 
         jButton3.setText("Cancelar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -158,8 +169,21 @@ public class Emergencia extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       
+        try {           
+        Integer id=Integer.parseInt(this.jTextField1.getText());
+        String nombre=this.jTextField2.getText();
+        String domicilio=this.jTextField4.getText();
+        String tipoemergencia=this.jTextArea1.getText();        
+        new SolicitudEm(id,nombre,domicilio,tipoemergencia);  
+        emergencia.solicitudEm();
+        }catch (java.lang.NumberFormatException ex) {
+            JOptionPane.showMessageDialog(rootPane, "Tipos de datos mal cargados", "Alerta",0);            
+         }       
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       
+    }//GEN-LAST:event_jButton3ActionPerformed
 
    
 
