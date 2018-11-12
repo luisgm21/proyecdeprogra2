@@ -13,7 +13,7 @@ public class Emergencia extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(parent);
         //this.emergencia=emergencia;
-        //this.emergencia=new SolicitudEm();
+        this.emergencia=new SolicitudEm();
         
     }
 

@@ -255,9 +255,8 @@ public class AltaAfiliados extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(349, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -281,7 +280,6 @@ public class AltaAfiliados extends javax.swing.JDialog {
         System.out.println(lista.size());
         afiliado.CapturarDatos();
         lista.add(afiliado);
-        mostrar();
         nomb.setText("");
         direc.setText("");
         eda.setText("");
