@@ -35,10 +35,10 @@ public class SolicitudEm {
    
     public void solicitudEm(){        
         JOptionPane.showMessageDialog(null, "MORELI GATO");
-        JOptionPane.showMessageDialog(null,id);
-        JOptionPane.showMessageDialog(null,domicilio);
-        JOptionPane.showMessageDialog(null,tipoemergencia);
-        JOptionPane.showMessageDialog(null,nombre);        
+        JOptionPane.showMessageDialog(null,this.id);
+        JOptionPane.showMessageDialog(null,this.domicilio);
+        JOptionPane.showMessageDialog(null,this.tipoemergencia);
+        JOptionPane.showMessageDialog(null,this.nombre);        
         
     }
     

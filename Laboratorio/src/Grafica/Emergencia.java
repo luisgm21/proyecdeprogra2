@@ -12,8 +12,8 @@ public class Emergencia extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-        this.emergencia=emergencia;
-        this.emergencia=new SolicitudEm();
+        //this.emergencia=emergencia;
+        //this.emergencia=new SolicitudEm();
         
     }
 
@@ -174,7 +174,7 @@ public class Emergencia extends javax.swing.JDialog {
         String nombre=this.jTextField2.getText();
         String domicilio=this.jTextField4.getText();
         String tipoemergencia=this.jTextArea1.getText();        
-        new SolicitudEm(id,nombre,domicilio,tipoemergencia);  
+        emergencia= new SolicitudEm(id,nombre,domicilio,tipoemergencia);  
         emergencia.solicitudEm();
         }catch (java.lang.NumberFormatException ex) {
             JOptionPane.showMessageDialog(rootPane, "Tipos de datos mal cargados", "Alerta",0);            
