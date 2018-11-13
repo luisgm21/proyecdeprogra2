@@ -44,4 +44,16 @@ public class ArrayListPersona implements PersonaDAO{
         
     }
     
+    public ArrayList CargaEmpleados(){
+        ArrayList empleados = new ArrayList(); 
+        Chofer cho = new Chofer("lucho");
+        Enfermero enfe = new Enfermero("marco");
+        Medico medi = new Medico("raul");
+        empleados.add(medi);
+        empleados.add(cho);
+        empleados.add(enfe);
+        return empleados;
+        
+}
+    
 }

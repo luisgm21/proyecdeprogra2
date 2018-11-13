@@ -1,19 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Grafica;
+
+import Clinica.ArrayListPersona;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import Clinica.Empleado;
 
 
 public class Empleados extends javax.swing.JDialog {
-
+    private DefaultListModel listModel = new DefaultListModel();
     
     public Empleados(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-    }
+      
+        mostrar();
+ }
+    
+    
+    
 
    
     @SuppressWarnings("unchecked")
@@ -33,14 +38,13 @@ public class Empleados extends javax.swing.JDialog {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "NOMBRE", "PROFESION", "CUADRILLA"
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -51,15 +55,14 @@ public class Empleados extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 738, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(139, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -76,7 +79,29 @@ public class Empleados extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public void mostrar(){
+        
+        
+        ArrayList<Empleado> aux = new ArrayList();
+        ArrayListPersona array = new ArrayListPersona();
+        aux =array.CargaEmpleados();
     
+        String [][] matris= new String[aux.size()][4];
+        for (int i = 0; i < aux.size(); i++) {
+            matris[i][0]=aux.get(i).getNombre();
+            matris[i][1]=aux.get(i).getDni();
+            matris[i][2]=aux.get(i).getTelefono();
+            
+        }
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+           matris,
+            new String [] {
+                "Nombre ", "Dni", "telefono"
+            }
+        ));
+    
+    }
+        
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

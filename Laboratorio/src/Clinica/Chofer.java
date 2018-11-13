@@ -17,4 +17,6 @@ public class Chofer extends Empleado{
         super(nombre);
     }
     
+    
+    
 }   

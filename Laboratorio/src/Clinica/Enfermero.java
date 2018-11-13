@@ -16,4 +16,5 @@ public class Enfermero extends Empleado{
         super(nombre);
     }
     
+    
 }
