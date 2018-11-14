@@ -27,5 +27,5 @@ public class Ambulancia extends Movil {
     public String getCuadrilla() {
         return cuadrilla;
     }
-    
+       
 }

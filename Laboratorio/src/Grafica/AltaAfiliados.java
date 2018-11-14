@@ -305,13 +305,7 @@ public class AltaAfiliados extends javax.swing.JDialog {
     
     }
     
-    
-    
-    
-    
-    
-    
-    
+   
     
     private void telfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telfActionPerformed
         // TODO add your handling code here:
@@ -320,8 +314,6 @@ public class AltaAfiliados extends javax.swing.JDialog {
     private void nombActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombActionPerformed
-
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField Dni;
