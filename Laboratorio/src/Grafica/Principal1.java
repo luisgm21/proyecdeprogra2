@@ -2,16 +2,18 @@
 package Grafica;
 
 
+import Clinica.GestorPersona;
+import Clinica.PersonaDAO;
 import java.awt.Dimension;
 import javax.swing.JDesktopPane;
 
 
     
 public class Principal1 extends javax.swing.JFrame {
-
     
-    public Principal1() {
-       
+    private GestorPersona gestor;
+    public Principal1(PersonaDAO persona) {
+       this.gestor=new GestorPersona(persona); 
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -156,7 +158,7 @@ public class Principal1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new AltaAfiliados(this,true).setVisible(true);
+        new AltaAfiliados(this,true,gestor).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

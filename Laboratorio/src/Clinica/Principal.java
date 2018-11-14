@@ -8,7 +8,8 @@ public class Principal {
 
     
     public static void main(String[] args) {
-        Principal1 prin = new Principal1();
+        PersonaDAO persona=new ArrayListPersona();
+        Principal1 prin = new Principal1(persona);
         prin.setVisible(true);
         
        
