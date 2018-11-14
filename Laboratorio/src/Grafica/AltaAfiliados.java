@@ -104,13 +104,10 @@ public class AltaAfiliados extends javax.swing.JDialog {
 
         jTableAfiliado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Nombre ", "Dni", "Telefono", "Direccion"
+                "Nombre ", "Dni", "Telefono", "Direccion", "Edad"
             }
         ));
         jTableAfiliado.setRowHeight(30);
@@ -287,18 +284,19 @@ public class AltaAfiliados extends javax.swing.JDialog {
 
     
     public void mostrar(){
-        String [][] matris= new String[persona.getCuentas().size()][4];
+        String [][] matris= new String[persona.getCuentas().size()][5];
         for (int i = 0; i < persona.getCuentas().size(); i++) {
             Afiliado afiliado= (Afiliado)persona.getCuentas().get(i);
             matris[i][0]=afiliado.getNombre();
-            matris[i][1]=afiliado.getDireccion();
+            matris[i][1]=afiliado.getDni();
             matris[i][2]=afiliado.getTelefono();
             matris[i][3]=afiliado.getDireccion();
+            matris[i][4]=Integer.toString(afiliado.getEdad());
         }
       jTableAfiliado.setModel(new javax.swing.table.DefaultTableModel(
            matris,
             new String [] {
-                "Nombre ", "Dni", "Telefono", "Direccion"
+                "Nombre ", "Dni", "Telefono", "Direccion", "Edad"
             }
         ));
     
