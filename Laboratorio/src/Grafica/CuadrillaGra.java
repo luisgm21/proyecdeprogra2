@@ -18,23 +18,28 @@ public class CuadrillaGra extends javax.swing.JDialog {
         mostrar();
     }  
     public void mostrar(){   
-        ArrayList<Ambulancia> aux1 = new ArrayList();
-        ArrayList<Persona> aux = new ArrayList();
-        Cuadrilla array = new Cuadrilla();
-        aux =array.getLista();
-        aux1=array.getLista1();
+        Cuadrilla cua1 = new Cuadrilla();
+        Cuadrilla cua2 = new Cuadrilla();
+        cua1.getLista();
+        cua2.getLista1();
+        ArrayList<Cuadrilla> aux = new ArrayList();
         
-        String [][] matris= new String[aux.size()][3];
+        aux.add(cua1);
+        aux.add(cua2);
+        
+        String [][] matris= new String[aux.size()][6];
         for (int i = 0; i < aux.size(); i++) {
-            matris[i][0]=aux.get(i).getNombre();
-            matris[i][1]=aux.get(i).getNombre();
-            matris[i][2]=aux.get(i).getNombre();
-           // matris[i][3]=aux1.get(i).ambulancia();            
+            matris[i][0]="Cuadrilla"+ (i+1);
+            matris[i][1]=aux.get(i).getMedi();
+            matris[i][2]=aux.get(i).getEnfe();
+            matris[i][3]=aux.get(i).getCho();
+            matris[i][4]=aux.get(i).getAmbu();   
+            matris[i][5]=aux.get(i).getEstado();
         }
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
            matris,
             new String [] {
-                "medico ", "enfermero", "chofer",/*"Ambulancia"*/                
+                "Cuadrilla", "medico ", "enfermero", "chofer","Ambulancia","Estado de Cuadrilla"               
             }
         ));
     

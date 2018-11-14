@@ -7,25 +7,36 @@ import java.util.HashMap;
 
 
 public class Cuadrilla {
-    ArrayList lista = new ArrayList();//vectores
-    ArrayList lista1 = new ArrayList();
+    private Medico medic;
+    private Chofer chof;
+    private Ambulancia ambula;
+    private Enfermero enfermero;
+    private String estado="desocupado";
+    
     HashMap<Object,Object> cuadrilla = new HashMap<Object,Object>();
-    Ambulancia ambu = new Ambulancia("AC 380 KK");
-    Chofer cho = new Chofer("Marco");
-    Enfermero enfe = new Enfermero("Raul");
-    Medico medi = new Medico("Luis");
+    
     
        
-    public ArrayList getLista(){       
-        lista.add(cho);
-        lista.add(enfe);
-        lista.add(medi);        
-        return (lista);
+    public void getLista(){   
+        Ambulancia ambu = new Ambulancia("AC 380 KK");
+        Chofer cho = new Chofer("Marco");
+        Enfermero enfe = new Enfermero("Raul");
+        Medico medi = new Medico("Luis");
+        medic=medi;
+        chof=cho;
+        ambula=ambu;
+        enfermero=enfe;
     }
       
-     public ArrayList getLista1(){       
-        lista1.add(ambu);               
-        return (lista1);
+     public void getLista1(){
+         Ambulancia ambu = new Ambulancia("AR 350 JJ");
+        Chofer cho = new Chofer("Nico");
+        Enfermero enfe = new Enfermero("chino");
+        Medico medi = new Medico("Asael");
+        medic=medi;
+        chof=cho;
+        ambula=ambu;
+        enfermero=enfe;
     }
     
     /*public void cargaCuadrilla(){
@@ -38,21 +49,26 @@ public class Cuadrilla {
         
         
     }*/
+     
+    
 
     public String getAmbu() {
-        return ambu.ambulancia();
+        return ambula.ambulancia();
     }
 
     public String getCho() {
-        return cho.getNombre();
+        return chof.nombre;
     }
 
     public String getEnfe() {
-        return enfe.getNombre();
+        return enfermero.nombre;
     }
 
     public String getMedi() {
-        return medi.getNombre();
+        return medic.nombre;
+    }
+    public String getEstado(){
+        return estado;
     }
     
     
