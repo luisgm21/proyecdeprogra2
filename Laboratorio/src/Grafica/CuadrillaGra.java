@@ -39,7 +39,7 @@ public class CuadrillaGra extends javax.swing.JDialog {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
            matris,
             new String [] {
-                "Cuadrilla", "medico ", "enfermero", "chofer","Ambulancia","Estado de Cuadrilla"               
+                "Cuadrilla", "Medico ", "Enfermero", "Chofer","Ambulancia","Estado de Cuadrilla"               
             }
         ));
     

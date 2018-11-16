@@ -1,14 +1,19 @@
 
 package Grafica;
 
+import Clinica.Afiliado;
+import Clinica.GestorPersona;
+
 
 public class MostrarAfililiado extends javax.swing.JDialog {
 
-    
-    public MostrarAfililiado(java.awt.Frame parent, boolean modal) {
+    private GestorPersona persona;
+    public MostrarAfililiado(java.awt.Frame parent, boolean modal,GestorPersona gestor) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
+        this.persona=gestor;
+        mostrar();
     }
 
     
@@ -18,7 +23,7 @@ public class MostrarAfililiado extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableAfiliado = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MOSTRAR AFILIADOS");
@@ -26,33 +31,32 @@ public class MostrarAfililiado extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(153, 204, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("AFILIADOS CARGADOS"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableAfiliado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "NOMBRE AFILIADO", "ID AFILIADO", "CANTIDAD DE FAMILIARES", "ULTIMO PAGO"
+                "Nombre ", "Dni", "Telefono", "Direccion", "Edad"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jTableAfiliado.setRowHeight(30);
+        jScrollPane1.setViewportView(jTableAfiliado);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 26, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(172, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(130, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -71,12 +75,28 @@ public class MostrarAfililiado extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   
+   public void mostrar(){
+        String [][] matris= new String[persona.getCuentas().size()][5];
+        for (int i = 0; i < persona.getCuentas().size(); i++) {
+            Afiliado afiliado= (Afiliado)persona.getCuentas().get(i);
+            matris[i][0]=afiliado.getNombre();
+            matris[i][1]=afiliado.getDni();
+            matris[i][2]=afiliado.getTelefono();
+            matris[i][3]=afiliado.getDireccion();
+            matris[i][4]=Integer.toString(afiliado.getEdad());
+        }
+      jTableAfiliado.setModel(new javax.swing.table.DefaultTableModel(
+           matris,
+            new String [] {
+                "Nombre ", "Dni", "Telefono", "Direccion", "Edad"
+            }
+        ));
+   }
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableAfiliado;
     // End of variables declaration//GEN-END:variables
 }

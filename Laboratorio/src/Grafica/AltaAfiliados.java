@@ -3,8 +3,9 @@ package Grafica;
 
 import Clinica.Afiliado;
 import Clinica.GestorPersona;
+import Excepciones.AfiliadoExistenteException;
 import java.awt.Frame;
-import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 
 public class AltaAfiliados extends javax.swing.JDialog {
@@ -12,8 +13,8 @@ public class AltaAfiliados extends javax.swing.JDialog {
     private Frame principal1;
     public AltaAfiliados(java.awt.Frame parent, boolean modal,GestorPersona persona) {
         super(parent, modal);
-        this.persona=persona;
         initComponents();
+        this.persona=persona;
         setLocationRelativeTo(parent);
     }
     
@@ -38,8 +39,6 @@ public class AltaAfiliados extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTableAfiliado = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -102,17 +101,6 @@ public class AltaAfiliados extends javax.swing.JDialog {
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setText("Cantidad de familiares :");
 
-        jTableAfiliado.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Nombre ", "Dni", "Telefono", "Direccion", "Edad"
-            }
-        ));
-        jTableAfiliado.setRowHeight(30);
-        jScrollPane1.setViewportView(jTableAfiliado);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -126,11 +114,8 @@ public class AltaAfiliados extends javax.swing.JDialog {
                         .addGap(19, 19, 19)
                         .addComponent(jLabel9)
                         .addGap(29, 29, 29)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 569, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(439, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,9 +126,7 @@ public class AltaAfiliados extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(291, 291, 291))
+                .addContainerGap(444, Short.MAX_VALUE))
         );
 
         jButton1.setText("MOSTRAR AFILIADOS CARGADOS");
@@ -267,43 +250,29 @@ public class AltaAfiliados extends javax.swing.JDialog {
     }//GEN-LAST:event_edaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //new MostrarAfililiado(principal1,true).setVisible(true);
-        mostrar();
+        new MostrarAfililiado(principal1,true,persona).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Afiliado afiliado=new Afiliado();
-        afiliado.CapturarDatos();
-        persona.agregarCuenta(afiliado);
-        nomb.setText("");
-        direc.setText("");
-        eda.setText("");
-        telf.setText("");
-        Dni.setText("");
+        try{
+            Afiliado afiliado=new Afiliado(this.nomb.getText(),this.Dni.getText(),this.telf.getText(),this.direc.getText(),Integer.parseInt(this.eda.getText()));
+            //afiliado.CapturarDatos();
+            persona.agregarCuenta(afiliado);
+            JOptionPane.showMessageDialog(rootPane, "Afiliado cargado correctamente");
+            nomb.setText(null);
+            direc.setText("");
+            eda.setText("");
+            telf.setText("");
+            Dni.setText("");     
+        }
+        catch(AfiliadoExistenteException ex){
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Alerta",0);
+        }
+        catch(java.lang.NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "no se permiten letras");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    
-    public void mostrar(){
-        String [][] matris= new String[persona.getCuentas().size()][5];
-        for (int i = 0; i < persona.getCuentas().size(); i++) {
-            Afiliado afiliado= (Afiliado)persona.getCuentas().get(i);
-            matris[i][0]=afiliado.getNombre();
-            matris[i][1]=afiliado.getDni();
-            matris[i][2]=afiliado.getTelefono();
-            matris[i][3]=afiliado.getDireccion();
-            matris[i][4]=Integer.toString(afiliado.getEdad());
-        }
-      jTableAfiliado.setModel(new javax.swing.table.DefaultTableModel(
-           matris,
-            new String [] {
-                "Nombre ", "Dni", "Telefono", "Direccion", "Edad"
-            }
-        ));
-    
-    }
-    
-   
-    
     private void telfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telfActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_telfActionPerformed
@@ -329,8 +298,6 @@ public class AltaAfiliados extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableAfiliado;
     private javax.swing.JTextField jTextField6;
     public static javax.swing.JTextField nomb;
     public static javax.swing.JTextField telf;

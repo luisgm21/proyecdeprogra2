@@ -4,11 +4,7 @@ package Grafica;
 
 import Clinica.GestorPersona;
 import Clinica.PersonaDAO;
-import java.awt.Dimension;
-import javax.swing.JDesktopPane;
-
-
-    
+   
 public class Principal1 extends javax.swing.JFrame {
     
     private GestorPersona gestor;
