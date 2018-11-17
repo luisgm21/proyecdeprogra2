@@ -1,10 +1,16 @@
 
 package Clinica;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 
 
 public class Ambulancia extends Movil {
     private String cuadrilla;
+    
+    
+    ArrayList lista =new ArrayList();
     
     public Ambulancia(){
         
@@ -15,11 +21,14 @@ public class Ambulancia extends Movil {
         this.cuadrilla = cuadrilla;
     }
     
+    public Ambulancia( String marca, String modelo, String año, String patente){
+        super(marca, modelo, año, patente);
+    }
 
     public Ambulancia(String patente) {
         super(patente);
     }
-    
+   
     public String ambulancia(){
         return super.getPatente();
     }
@@ -28,4 +37,11 @@ public class Ambulancia extends Movil {
         return cuadrilla;
     }
        
+    public ArrayList agregarAmbulancia(){
+        lista.add(super.getMarca());
+        lista.add(super.getModelo());
+        lista.add(super.getAño());
+        lista.add(super.getPatente());
+        return (lista);
+    }   
 }

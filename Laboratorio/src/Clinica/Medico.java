@@ -16,6 +16,6 @@ public class Medico extends Empleado{
         super(nombre);
     }
     
-    
+
     
 }
