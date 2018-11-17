@@ -3,17 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/SALA3/Desktop/Nueva%20carpeta/proyecdeprogra2-master/Laboratorio/src/Clinica/PersonaDAO.java</file>
-            <file>file:/C:/Users/SALA3/Desktop/Nueva%20carpeta/proyecdeprogra2-master/Laboratorio/src/Grafica/CuadrillaGra.java</file>
-            <file>file:/C:/Users/SALA3/Desktop/Nueva%20carpeta/proyecdeprogra2-master/Laboratorio/src/Clinica/Afiliado.java</file>
-            <file>file:/C:/Users/SALA3/Desktop/Nueva%20carpeta/proyecdeprogra2-master/Laboratorio/src/Clinica/SolicitudEm.java</file>
-            <file>file:/C:/Users/SALA3/Desktop/Nueva%20carpeta/proyecdeprogra2-master/Laboratorio/src/Clinica/ArrayListPersona.java</file>
-            <file>file:/C:/Users/SALA3/Desktop/Nueva%20carpeta/proyecdeprogra2-master/Laboratorio/src/Grafica/Emergencia.java</file>
-            <file>file:/C:/Users/SALA3/Desktop/Nueva%20carpeta/proyecdeprogra2-master/Laboratorio/src/Grafica/AltaAfiliados.java</file>
-            <file>file:/C:/Users/SALA3/Desktop/Nueva%20carpeta/proyecdeprogra2-master/Laboratorio/src/Grafica/Empleados.java</file>
-            <file>file:/C:/Users/SALA3/Desktop/Nueva%20carpeta/proyecdeprogra2-master/Laboratorio/src/Excepciones/AfiliadoExistenteException.java</file>
-            <file>file:/C:/Users/SALA3/Desktop/Nueva%20carpeta/proyecdeprogra2-master/Laboratorio/src/Grafica/MostrarAfililiado.java</file>
-            <file>file:/C:/Users/SALA3/Desktop/Nueva%20carpeta/proyecdeprogra2-master/Laboratorio/src/Clinica/Cuadrilla.java</file>
+            <file>file:/C:/Users/Marco/Desktop/Laboratorio%20Prog%20II/proyecdeprogra2/Laboratorio/src/Grafica/AltaEmpleados.java</file>
+            <file>file:/C:/Users/Marco/Desktop/Laboratorio%20Prog%20II/proyecdeprogra2/Laboratorio/src/Grafica/CuadrillaGra.java</file>
+            <file>file:/C:/Users/Marco/Desktop/Laboratorio%20Prog%20II/proyecdeprogra2/Laboratorio/src/Grafica/Empleados.java</file>
+            <file>file:/C:/Users/Marco/Desktop/Laboratorio%20Prog%20II/proyecdeprogra2/Laboratorio/src/Excepciones/CamposVaciosException.java</file>
+            <file>file:/C:/Users/Marco/Desktop/Laboratorio%20Prog%20II/proyecdeprogra2/Laboratorio/src/Clinica/Ambulancia.java</file>
+            <file>file:/C:/Users/Marco/Desktop/Laboratorio%20Prog%20II/proyecdeprogra2/Laboratorio/src/Grafica/AltaAmbulancia.java</file>
+            <file>file:/C:/Users/Marco/Desktop/Laboratorio%20Prog%20II/proyecdeprogra2/Laboratorio/src/Excepciones/AfiliadoExistenteException.java</file>
+            <file>file:/C:/Users/Marco/Desktop/Laboratorio%20Prog%20II/proyecdeprogra2/Laboratorio/src/Clinica/ArrayListPersona.java</file>
+            <file>file:/C:/Users/Marco/Desktop/Laboratorio%20Prog%20II/proyecdeprogra2/Laboratorio/src/Grafica/AltaAfiliados.java</file>
+            <file>file:/C:/Users/Marco/Desktop/Laboratorio%20Prog%20II/proyecdeprogra2/Laboratorio/src/Clinica/Medico.java</file>
+            <file>file:/C:/Users/Marco/Desktop/Laboratorio%20Prog%20II/proyecdeprogra2/Laboratorio/src/Grafica/Principal1.java</file>
         </group>
     </open-files>
 </project-private>
