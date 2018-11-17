@@ -3,7 +3,7 @@ package Clinica;
 import Grafica.Principal1;
 import java.util.ArrayList;
 
-
+// menu principal
 public class Principal {
 
     
