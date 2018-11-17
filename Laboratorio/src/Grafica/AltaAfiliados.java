@@ -3,7 +3,7 @@ package Grafica;
 
 import Clinica.Afiliado;
 import Clinica.GestorPersona;
-import Excepciones.AfiliadoExistenteException;
+import Excepciones.PersonaExistenteException;
 import java.awt.Frame;
 import javax.swing.JOptionPane;
 
@@ -265,7 +265,7 @@ public class AltaAfiliados extends javax.swing.JDialog {
             telf.setText("");
             Dni.setText("");     
         }
-        catch(AfiliadoExistenteException ex){
+        catch(PersonaExistenteException ex){
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Alerta",0);
         }
         catch(java.lang.NumberFormatException ex){

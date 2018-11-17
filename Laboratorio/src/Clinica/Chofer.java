@@ -17,6 +17,10 @@ public class Chofer extends Empleado{
         super(nombre);
     }
     
+    public Chofer(String nombre, String dni, String telefono, String direccion, Integer edad) {
+        super(nombre, dni, telefono, direccion, edad);
+    }
+    
     
     
 }   

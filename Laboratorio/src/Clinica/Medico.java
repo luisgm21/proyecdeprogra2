@@ -16,6 +16,9 @@ public class Medico extends Empleado{
         super(nombre);
     }
     
+    public Medico(String nombre, String dni, String telefono, String direccion, Integer edad) {
+        super(nombre, dni, telefono, direccion, edad);
+    }
 
     
 }
