@@ -16,5 +16,9 @@ public class Enfermero extends Empleado{
         super(nombre);
     }
     
+    public Enfermero(String nombre, String dni, String telefono, String direccion, Integer edad) {
+        super(nombre, dni, telefono, direccion, edad);
+    }
+    
     
 }

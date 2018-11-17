@@ -1,7 +1,8 @@
 
 package Clinica;
 
-import Excepciones.AfiliadoExistenteException;
+
+import Excepciones.PersonaExistenteException;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -37,7 +38,7 @@ public class ArrayListPersona implements PersonaDAO{
       public void insert(Persona insertRecord) {
         Persona existe = findByPK(insertRecord.getDni());
         if (existe != null) {
-            throw new AfiliadoExistenteException("Afiliado existente " + existe.getNombre());
+            throw new PersonaExistenteException("persona existente " + existe.getNombre());
         }
         lista.add(insertRecord);
     }

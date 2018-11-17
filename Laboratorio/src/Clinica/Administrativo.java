@@ -17,4 +17,8 @@ public class Administrativo extends Empleado{
     public Administrativo(String nombre) {
         super(nombre);
     }    
+    
+    public Administrativo(String nombre, String dni, String telefono, String direccion, Integer edad) {
+        super(nombre, dni, telefono, direccion, edad);
+    }
 }
