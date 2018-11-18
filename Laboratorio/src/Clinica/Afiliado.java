@@ -47,6 +47,11 @@ public class Afiliado extends Persona{
         familia.add(familiar);
         numdefam=familia.size();
     }
+    public void leerFamiliar(){
+        for (int i = 0; i < numdefam; i++) {
+            familia.get(i);
+        }
+    }
     /*  public void CapturarDatos(){
     super.setNombre(AltaAfiliados.nomb.getText());
     super.setDireccion(AltaAfiliados.direc.getText());
@@ -57,8 +62,5 @@ public class Afiliado extends Persona{
     public void ImprimirDatos(){
         JOptionPane.showMessageDialog(null,"El Nombre del afiliado es: "+nombre+"\n Su edad es: "+edad+"\n su Direccion: "+direccion+"\n su dni: "+dni+"\n Su telefono: "+telefono,"Mensaje" , JOptionPane.PLAIN_MESSAGE);
     } 
-     public String toString(){
-        return this.getNombre()+" "+this.getDni();
-    }
 }
 
