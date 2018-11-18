@@ -44,7 +44,7 @@ public class Afiliado extends Persona{
     }
     public Afiliado(String nombre, String dni, String telefono, String direccion, Integer edad){
         super(nombre,dni,telefono,direccion,edad);
-        fechaultpago=LocalDateTime.parse("18/08/2018 00:00:00", miFormatFecha);
+        fechaultpago=LocalDateTime.parse("18/11/2018 00:00:00", miFormatFecha);
     }
     public void agregarFamiliar(Persona familiar){
         familia.add(familiar);
