@@ -5,6 +5,7 @@ import Grafica.AltaAfiliados;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collection;
 import javax.swing.JOptionPane;
 
 
@@ -48,12 +49,10 @@ public class Afiliado extends Persona{
     }
     public void agregarFamiliar(Persona familiar){
         familia.add(familiar);
-        numdefam=familia.size();
+        
     }
-    public void leerFamiliar(){
-        for (int i = 0; i < numdefam; i++) {
-            familia.get(i);
-        }
+    public ArrayList leerFamilia(){
+        return familia;
     }
     /*  public void CapturarDatos(){
     super.setNombre(AltaAfiliados.nomb.getText());

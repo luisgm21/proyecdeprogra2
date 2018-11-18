@@ -123,19 +123,9 @@ public class AltaAfiliados extends javax.swing.JDialog {
 
         btn_si.setBackground(new java.awt.Color(51, 155, 255));
         btn_si.setText("SI");
-        btn_si.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_siActionPerformed(evt);
-            }
-        });
 
         btn_no.setBackground(new java.awt.Color(51, 155, 255));
         btn_no.setText("NO");
-        btn_no.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_noActionPerformed(evt);
-            }
-        });
 
         jButton2.setText("Aceptar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -301,7 +291,8 @@ public class AltaAfiliados extends javax.swing.JDialog {
         try{
             Afiliado afiliado=new Afiliado(this.nomb.getText(),this.Dni.getText(),this.telf.getText(),this.direc.getText(),Integer.parseInt(this.eda.getText()));
             if(btn_si.isSelected()){
-                
+                new AltaFamiliar(principal1,true,persona,afiliado).setVisible(true);
+               // persona.agregarCuenta(afiliado);
             }else if(btn_no.isSelected()){
                 //afiliado.CapturarDatos();
                 persona.agregarCuenta(afiliado);
@@ -338,14 +329,6 @@ public class AltaAfiliados extends javax.swing.JDialog {
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
        this.setNombreCuentaContable();
     }//GEN-LAST:event_jTextField6ActionPerformed
-
-    private void btn_noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_noActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_noActionPerformed
-
-    private void btn_siActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_siActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_siActionPerformed
 private void setNombreCuentaContable(){
         Afiliado cuenta=null;
         try {
