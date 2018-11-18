@@ -48,6 +48,7 @@ public class Afiliado extends Persona{
     }
     public void agregarFamiliar(Persona familiar){
         familia.add(familiar);
+        this.numdefam=familia.size();
         
     }
     public ArrayList leerFamilia(){

@@ -189,6 +189,11 @@ public class AltaFamiliar extends javax.swing.JDialog {
             persona.agregarCuenta(afiliado);
             this.setVisible(false);
         }
+        text_nombre.setText("");
+        text_DNI.setText("");
+        text_telefono.setText("");
+        text_direccion.setText("");
+        text_edad.setText("");
     }//GEN-LAST:event_btn_aceptarActionPerformed
 
    
