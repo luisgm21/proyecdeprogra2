@@ -3,6 +3,7 @@ package Clinica;
 
 import Grafica.AltaAfiliados;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -13,6 +14,7 @@ public class Afiliado extends Persona{
     private ArrayList<Persona>familia=new ArrayList();
     private int numdefam;
     private PagoAfiliado pago;
+    DateTimeFormatter miFormatFecha = DateTimeFormatter.ofPattern("d/MM/yyyy H:mm:ss");
     
     public Afiliado(){
         
@@ -42,6 +44,7 @@ public class Afiliado extends Persona{
     }
     public Afiliado(String nombre, String dni, String telefono, String direccion, Integer edad){
         super(nombre,dni,telefono,direccion,edad);
+        fechaultpago=LocalDateTime.parse("18/11/2018 00:00:00", miFormatFecha);
     }
     public void agregarFamiliar(Persona familiar){
         familia.add(familiar);
