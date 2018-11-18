@@ -1,25 +1,92 @@
 package Grafica;
 
+import Clinica.Administrativo;
 import Clinica.ArrayListPersona;
+import Clinica.Chofer;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import Clinica.Empleado;
+import Clinica.Enfermero;
+import Clinica.GestorPersona;
+import Clinica.Medico;
 import java.awt.Frame;
+import javax.swing.JOptionPane;
 
 
 public class Empleados extends javax.swing.JDialog {
     private DefaultListModel listModel = new DefaultListModel();
     private Frame principal1;
-    public Empleados(java.awt.Frame parent, boolean modal) {
+   
+    private GestorPersona persona;
+    Empleados(java.awt.Frame parent, boolean modal, GestorPersona persona) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-      
-        mostrar();
- }
+        this.persona=persona;
+        empleados();
+        
+            
+        
+        
+    }
     
     
-    
+    public void empleados(){
+        int i=0;
+        String [][] matris= new String[persona.getCuentas().size()][5];
+        for(Object object:persona.getCuentas()){               
+            if(object.getClass()==Medico.class){
+                Medico medico=new Medico();
+                medico=(Medico)object;
+                JOptionPane.showMessageDialog(null, medico.getNombre()); 
+                matris[i][0]=medico.getNombre();
+                matris[i][1]=medico.getDni();
+                matris[i][2]=medico.getTelefono();
+                matris[i][3]=medico.getDireccion();
+                matris[i][4]="Medico";
+             //   matris[i][4]=medico.getEdad();
+                i++;
+            }    
+            if(object.getClass()==Chofer.class){
+                Chofer chofer=new Chofer();
+                chofer=(Chofer)object;
+                JOptionPane.showMessageDialog(null, chofer.getNombre());
+                matris[i][0]=chofer.getNombre();
+                matris[i][1]=chofer.getDni();
+                matris[i][2]=chofer.getTelefono();
+                matris[i][3]=chofer.getDireccion();
+                matris[i][4]="Chofer";
+                i++;
+            }  
+            if(object.getClass()==Enfermero.class){
+                Enfermero enfermero=new Enfermero();
+                enfermero=(Enfermero)object;
+                JOptionPane.showMessageDialog(null, enfermero.getNombre()); 
+                matris[i][0]=enfermero.getNombre();
+                matris[i][1]=enfermero.getDni();
+                matris[i][2]=enfermero.getTelefono();
+                matris[i][3]=enfermero.getDireccion();
+                matris[i][4]="Enfermero";
+            }  
+            if(object.getClass()==Administrativo.class){
+                Administrativo administrativo=new Administrativo();
+                administrativo=(Administrativo)object;
+                JOptionPane.showMessageDialog(null, administrativo.getNombre());
+                matris[i][0]=administrativo.getNombre();
+                matris[i][1]=administrativo.getDni();
+                matris[i][2]=administrativo.getTelefono();
+                matris[i][3]=administrativo.getDireccion();
+                matris[i][4]="Administrativo";
+                i++;
+            }              
+        }   
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+           matris,
+            new String [] {
+                "Nombre ", "Dni", "Telefono","Direccion","Profesion"
+            }
+        ));
+    }
 
    
     @SuppressWarnings("unchecked")
@@ -57,14 +124,14 @@ public class Empleados extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 708, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -81,28 +148,7 @@ public class Empleados extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void mostrar(){
-        
-        
-        ArrayList<Empleado> aux = new ArrayList();
-        ArrayListPersona array = new ArrayListPersona();
-        aux =array.CargaEmpleados();
     
-        String [][] matris= new String[aux.size()][4];
-        for (int i = 0; i < aux.size(); i++) {
-            matris[i][0]=aux.get(i).getNombre();
-            matris[i][1]=aux.get(i).getDni();
-            matris[i][2]=aux.get(i).getTelefono();
-            
-        }
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-           matris,
-            new String [] {
-                "Nombre ", "Dni", "telefono"
-            }
-        ));
-    
-    }
         
    
 

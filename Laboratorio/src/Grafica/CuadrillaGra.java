@@ -2,22 +2,54 @@
 package Grafica;
 
 import Clinica.Ambulancia;
+import Clinica.Chofer;
 import Clinica.Cuadrilla;
+import Clinica.Enfermero;
+import Clinica.GestorPersona;
+import Clinica.Medico;
 import Clinica.Persona;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 
 public class CuadrillaGra extends javax.swing.JDialog {
 
     private DefaultListModel listModel = new DefaultListModel();
-    public CuadrillaGra(java.awt.Frame parent, boolean modal) {
+    
+    private GestorPersona persona;
+    CuadrillaGra(java.awt.Frame parent, boolean modal, GestorPersona persona) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
         mostrar();
-    }  
-    public void mostrar(){   
+        this.persona=persona;
+        construccionCuadrilla();
+    }
+    
+    public void construccionCuadrilla(){
+       
+        for(Object object:persona.getCuentas()){               
+            if(object.getClass()==Medico.class){
+                Medico medico=new Medico();
+                medico=(Medico)object;
+                JOptionPane.showMessageDialog(null, medico.getNombre()); 
+            }    
+            if(object.getClass()==Chofer.class){
+                Chofer chofer=new Chofer();
+                chofer=(Chofer)object;
+                JOptionPane.showMessageDialog(null, chofer.getNombre()); 
+            }  
+            if(object.getClass()==Enfermero.class){
+                Enfermero enfermero=new Enfermero();
+                enfermero=(Enfermero)object;
+                JOptionPane.showMessageDialog(null, enfermero.getNombre()); 
+            }  
+        }        
+    }
+    
+
+    public void mostrar(){           
         Cuadrilla cua1 = new Cuadrilla();
         Cuadrilla cua2 = new Cuadrilla();
         cua1.getLista();
