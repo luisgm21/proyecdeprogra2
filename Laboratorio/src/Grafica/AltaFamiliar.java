@@ -223,9 +223,6 @@ public void validar(){
         validar();
     }//GEN-LAST:event_validarActionPerformed
 
-   
-   
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_aceptar;
     private javax.swing.JRadioButton btn_no;
