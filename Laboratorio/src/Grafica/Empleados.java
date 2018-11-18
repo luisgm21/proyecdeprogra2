@@ -37,8 +37,7 @@ public class Empleados extends javax.swing.JDialog {
         for(Object object:persona.getCuentas()){               
             if(object.getClass()==Medico.class){
                 Medico medico=new Medico();
-                medico=(Medico)object;
-                JOptionPane.showMessageDialog(null, medico.getNombre()); 
+                medico=(Medico)object;              
                 matris[i][0]=medico.getNombre();
                 matris[i][1]=medico.getDni();
                 matris[i][2]=medico.getTelefono();
@@ -49,8 +48,7 @@ public class Empleados extends javax.swing.JDialog {
             }    
             if(object.getClass()==Chofer.class){
                 Chofer chofer=new Chofer();
-                chofer=(Chofer)object;
-                JOptionPane.showMessageDialog(null, chofer.getNombre());
+                chofer=(Chofer)object;               
                 matris[i][0]=chofer.getNombre();
                 matris[i][1]=chofer.getDni();
                 matris[i][2]=chofer.getTelefono();
@@ -60,18 +58,17 @@ public class Empleados extends javax.swing.JDialog {
             }  
             if(object.getClass()==Enfermero.class){
                 Enfermero enfermero=new Enfermero();
-                enfermero=(Enfermero)object;
-                JOptionPane.showMessageDialog(null, enfermero.getNombre()); 
+                enfermero=(Enfermero)object;                
                 matris[i][0]=enfermero.getNombre();
                 matris[i][1]=enfermero.getDni();
                 matris[i][2]=enfermero.getTelefono();
                 matris[i][3]=enfermero.getDireccion();
                 matris[i][4]="Enfermero";
+                i++;
             }  
             if(object.getClass()==Administrativo.class){
                 Administrativo administrativo=new Administrativo();
-                administrativo=(Administrativo)object;
-                JOptionPane.showMessageDialog(null, administrativo.getNombre());
+                administrativo=(Administrativo)object;               
                 matris[i][0]=administrativo.getNombre();
                 matris[i][1]=administrativo.getDni();
                 matris[i][2]=administrativo.getTelefono();

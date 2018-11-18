@@ -2,22 +2,47 @@
 package Clinica;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
 
 
 
 public class Cuadrilla {
-    private Medico medic;
-    private Chofer chof;
-    private Ambulancia ambula;
-    private Enfermero enfermero;
-    private String estado="desocupado";
+    private String idcuadrilla;
+    private String estado="Desocupado";
     
-    HashMap<Object,Object> cuadrilla = new HashMap<Object,Object>();
+    
+    
+    
+    public Cuadrilla(String cuadrilla, String estado) {
+        this.idcuadrilla = idcuadrilla;
+        this.estado = estado;
+    }
+
+    public Cuadrilla() {
+       
+    }
+
+    
+
+    public void setCuadrilla(String cuadrilla) {
+        this.idcuadrilla = idcuadrilla;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getIdcuadrilla() {
+        return idcuadrilla;
+    }
+
+    
+    
+    
     
     
        
-    public void getLista(){   
+    /*public void getLista(){   
         Ambulancia ambu = new Ambulancia("AC 380 KK");
         Chofer cho = new Chofer("Marco");
         Enfermero enfe = new Enfermero("Raul");
@@ -26,9 +51,9 @@ public class Cuadrilla {
         chof=cho;
         ambula=ambu;
         enfermero=enfe;
-    }
+    }*/
       
-     public void getLista1(){
+    /* public void getLista1(){
          Ambulancia ambu = new Ambulancia("AR 350 JJ");
         Chofer cho = new Chofer("Nico");
         Enfermero enfe = new Enfermero("chino");
@@ -37,7 +62,7 @@ public class Cuadrilla {
         chof=cho;
         ambula=ambu;
         enfermero=enfe;
-    }
+    }*/
     
     /*public void cargaCuadrilla(){
         lista.add(cho.getNombre());
@@ -52,7 +77,7 @@ public class Cuadrilla {
      
     
 
-    public String getAmbu() {
+   /* public String getAmbu() {
         return ambula.ambulancia();
     }
 
@@ -66,7 +91,7 @@ public class Cuadrilla {
 
     public String getMedi() {
         return medic.nombre;
-    }
+    }*/
     public String getEstado(){
         return estado;
     }

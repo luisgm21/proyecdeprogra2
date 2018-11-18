@@ -22,61 +22,58 @@ public class CuadrillaGra extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-        mostrar();
+        //mostrar();
         this.persona=persona;
         construccionCuadrilla();
     }
     
     public void construccionCuadrilla(){
-       
+        Cuadrilla cua= new Cuadrilla();
+        int i=0;
+        String [][] matris= new String[persona.getCuentas().size()][6];
         for(Object object:persona.getCuentas()){               
             if(object.getClass()==Medico.class){
                 Medico medico=new Medico();
                 medico=(Medico)object;
                 JOptionPane.showMessageDialog(null, medico.getNombre()); 
+                matris[i][0]=""+i;
+                matris[i][1]=medico.getNombre();
+                matris[i][5]=cua.getEstado();
+                cua.setCuadrilla(""+i);
+                if(matris[i][1]!=null && matris[i][2]!=null && matris[i][3]!=null){
+                    cua.setCuadrilla(""+i);
+                    
+                    i++;
+                    
+                }               
             }    
             if(object.getClass()==Chofer.class){
                 Chofer chofer=new Chofer();
                 chofer=(Chofer)object;
-                JOptionPane.showMessageDialog(null, chofer.getNombre()); 
+                JOptionPane.showMessageDialog(null, chofer.getNombre());                 
+                matris[i][3]=chofer.getNombre(); 
+                if(matris[i][1]!=null && matris[i][2]!=null && matris[i][3]!=null){
+                    i++;
+                }
             }  
             if(object.getClass()==Enfermero.class){
                 Enfermero enfermero=new Enfermero();
                 enfermero=(Enfermero)object;
-                JOptionPane.showMessageDialog(null, enfermero.getNombre()); 
+                JOptionPane.showMessageDialog(null, enfermero.getNombre());               
+                matris[i][2]=enfermero.getNombre(); 
+                if(matris[i][1]!=null && matris[i][2]!=null && matris[i][3]!=null){
+                    i++;
+                }
             }  
-        }        
-    }
-    
-
-    public void mostrar(){           
-        Cuadrilla cua1 = new Cuadrilla();
-        Cuadrilla cua2 = new Cuadrilla();
-        cua1.getLista();
-        cua2.getLista1();
-        ArrayList<Cuadrilla> aux = new ArrayList();
-        
-        aux.add(cua1);
-        aux.add(cua2);
-        
-        String [][] matris= new String[aux.size()][6];
-        for (int i = 0; i < aux.size(); i++) {
-            matris[i][0]="Cuadrilla"+ (i+1);
-            matris[i][1]=aux.get(i).getMedi();
-            matris[i][2]=aux.get(i).getEnfe();
-            matris[i][3]=aux.get(i).getCho();
-            matris[i][4]=aux.get(i).getAmbu();   
-            matris[i][5]=aux.get(i).getEstado();
-        }
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        }  
+         jTable1.setModel(new javax.swing.table.DefaultTableModel(
            matris,
             new String [] {
                 "Cuadrilla", "Medico ", "Enfermero", "Chofer","Ambulancia","Estado de Cuadrilla"               
             }
         ));
-    
     }
-    
+        
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
