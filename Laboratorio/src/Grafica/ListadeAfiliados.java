@@ -4,14 +4,17 @@ package Grafica;
 import Clinica.Afiliado;
 import Clinica.GestorPersona;
 import javax.swing.DefaultListModel;
+import javax.swing.JTextField;
 
 
 public class ListadeAfiliados extends javax.swing.JDialog {
     private DefaultListModel lista = new DefaultListModel();
-    public ListadeAfiliados(java.awt.Frame parent, boolean modal, GestorPersona gestor) {
+    JTextField jTextField6;
+    public ListadeAfiliados(java.awt.Frame parent, boolean modal,JTextField jTextField6,GestorPersona gestor) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
+        this.jTextField6=jTextField6;
         for (int i = 0; i < gestor.getCuentas().size(); i++) {
             lista.addElement(gestor.getCuentas().get(i));
         }
@@ -91,7 +94,7 @@ public class ListadeAfiliados extends javax.swing.JDialog {
     private void btnaceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaceptarActionPerformed
         Afiliado s = jList1.getSelectedValue();
         if (s!=null){
-        //jTextField1.setText(s.getDni());
+        jTextField6.setText(s.getDni());
         }
         this.setVisible(false);   
     }//GEN-LAST:event_btnaceptarActionPerformed

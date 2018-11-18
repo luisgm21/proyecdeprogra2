@@ -4,6 +4,7 @@ package Grafica;
 import Clinica.Afiliado;
 import Clinica.GestorPersona;
 import Excepciones.PersonaExistenteException;
+import Excepciones.PersonaInexistenteException;
 import java.awt.Frame;
 import javax.swing.JOptionPane;
 
@@ -39,9 +40,9 @@ public class AltaAfiliados extends javax.swing.JDialog {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Telefono:");
@@ -102,6 +103,19 @@ public class AltaAfiliados extends javax.swing.JDialog {
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setText("Cantidad de familiares :");
 
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("prueba");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -115,8 +129,10 @@ public class AltaAfiliados extends javax.swing.JDialog {
                         .addGap(19, 19, 19)
                         .addComponent(jLabel9)
                         .addGap(29, 29, 29)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(439, Short.MAX_VALUE))
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton3)))
+                .addContainerGap(354, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,7 +142,8 @@ public class AltaAfiliados extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
                 .addContainerGap(444, Short.MAX_VALUE))
         );
 
@@ -141,13 +158,6 @@ public class AltaAfiliados extends javax.swing.JDialog {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("prueba");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
             }
         });
 
@@ -191,8 +201,6 @@ public class AltaAfiliados extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(321, 321, 321)
                 .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -226,9 +234,7 @@ public class AltaAfiliados extends javax.swing.JDialog {
                     .addComponent(jLabel6)
                     .addComponent(eda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                .addComponent(jButton2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -294,9 +300,24 @@ public class AltaAfiliados extends javax.swing.JDialog {
     }//GEN-LAST:event_nombActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-     new ListadeAfiliados(principal1,true,persona).setVisible(true);
+     ListadeAfiliados lista= new ListadeAfiliados(principal1,true,this.jTextField6,persona);
+     lista.setVisible(true);
+     this.setNombreCuentaContable();
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+       this.setNombreCuentaContable();
+    }//GEN-LAST:event_jTextField6ActionPerformed
+private void setNombreCuentaContable(){
+        Afiliado cuenta=null;
+        try {
+            cuenta = (Afiliado) persona.getCuenta(this.jTextField6.getText().trim());
+        } catch (PersonaInexistenteException ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Alerta", 0);
+        } finally {
+           // this.jLabel2.setText((cuenta!=null)?cuenta.getNombre():"Cuenta Inexistente");
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTextField Dni;
     public static javax.swing.JTextField direc;
