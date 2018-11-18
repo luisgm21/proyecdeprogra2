@@ -64,5 +64,7 @@ public class Persona{
     public void setEdad(Integer edad) {
         this.edad = edad;
     }
-    
+     public String toString(){
+        return this.getNombre()+" "+this.getDni();
+    }
 }
