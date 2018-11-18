@@ -5,7 +5,6 @@ import Grafica.AltaAfiliados;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collection;
 import javax.swing.JOptionPane;
 
 
