@@ -4,6 +4,7 @@ package Grafica;
 import Clinica.Afiliado;
 import Clinica.GestorPersona;
 import Clinica.Persona;
+import javax.swing.JOptionPane;
 
 public class AltaFamiliar extends javax.swing.JDialog {
     private GestorPersona persona;
@@ -17,8 +18,17 @@ public class AltaFamiliar extends javax.swing.JDialog {
         setLocationRelativeTo(parent);
         grupo1.add(btn_no);
         grupo1.add(btn_si);
+        this.btn_aceptar.setVisible(false);
     }
-
+public void validar(){
+        if(this.text_nombre.getText().isEmpty() || this.text_direccion.getText().isEmpty() ||this.text_edad.getText().isEmpty() || this.text_telefono.getText().isEmpty() || this.text_DNI.getText().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Debe completar todos los campos de texto");  
+        }
+        else{
+           this.btn_aceptar.setVisible(true);
+        }
+        
+    }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -41,6 +51,7 @@ public class AltaFamiliar extends javax.swing.JDialog {
         btn_no = new javax.swing.JRadioButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        validar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -74,14 +85,17 @@ public class AltaFamiliar extends javax.swing.JDialog {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setText("DATOS DEL FAMILIAR:");
 
+        validar.setText("Validar");
+        validar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                validarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_aceptar)
-                .addGap(162, 162, 162))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -117,6 +131,12 @@ public class AltaFamiliar extends javax.swing.JDialog {
                             .addComponent(btn_no, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btn_si, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(147, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(validar)
+                .addGap(18, 18, 18)
+                .addComponent(btn_aceptar)
+                .addGap(109, 109, 109))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,15 +172,17 @@ public class AltaFamiliar extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jLabel6)
-                        .addGap(61, 61, 61))
+                        .addGap(95, 95, 95))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_si)
                         .addGap(3, 3, 3)
                         .addComponent(btn_no)
-                        .addGap(18, 18, 18)))
-                .addComponent(btn_aceptar)
-                .addContainerGap())
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_aceptar)
+                            .addComponent(validar))
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -194,7 +216,12 @@ public class AltaFamiliar extends javax.swing.JDialog {
         text_telefono.setText("");
         text_direccion.setText("");
         text_edad.setText("");
+        this.btn_aceptar.setVisible(false);
     }//GEN-LAST:event_btn_aceptarActionPerformed
+
+    private void validarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validarActionPerformed
+        validar();
+    }//GEN-LAST:event_validarActionPerformed
 
    
    
@@ -218,5 +245,6 @@ public class AltaFamiliar extends javax.swing.JDialog {
     private javax.swing.JTextField text_edad;
     private javax.swing.JTextField text_nombre;
     private javax.swing.JTextField text_telefono;
+    private javax.swing.JButton validar;
     // End of variables declaration//GEN-END:variables
 }

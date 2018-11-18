@@ -19,6 +19,16 @@ public class AltaAfiliados extends javax.swing.JDialog {
         grupo1.add(btn_si);
         grupo1.add(btn_no);
         setLocationRelativeTo(parent);
+        this.jButton2.setVisible(false);
+    }
+     public void validar(){
+        if(this.nomb.getText().isEmpty() || this.direc.getText().isEmpty() ||this.eda.getText().isEmpty() || this.telf.getText().isEmpty() || this.Dni.getText().isEmpty()){
+            JOptionPane.showMessageDialog(rootPane, "Debe completar todos los campos de texto");  
+        }
+        else{
+           this.jButton2.setVisible(true);
+        }
+        
     }
     
     @SuppressWarnings("unchecked")
@@ -47,6 +57,7 @@ public class AltaAfiliados extends javax.swing.JDialog {
         btn_si = new javax.swing.JRadioButton();
         btn_no = new javax.swing.JRadioButton();
         jButton2 = new javax.swing.JButton();
+        validar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -75,30 +86,6 @@ public class AltaAfiliados extends javax.swing.JDialog {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("DATOS DEL AFILIADO:");
-
-        nomb.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombActionPerformed(evt);
-            }
-        });
-
-        Dni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DniActionPerformed(evt);
-            }
-        });
-
-        telf.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telfActionPerformed(evt);
-            }
-        });
-
-        eda.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edaActionPerformed(evt);
-            }
-        });
 
         jPanel2.setBackground(new java.awt.Color(51, 153, 255));
 
@@ -134,12 +121,21 @@ public class AltaAfiliados extends javax.swing.JDialog {
             }
         });
 
+        validar.setText("Validar");
+        validar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                validarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 370, Short.MAX_VALUE)
+                .addGap(0, 279, Short.MAX_VALUE)
+                .addComponent(validar)
+                .addGap(18, 18, 18)
                 .addComponent(jButton2)
                 .addGap(313, 313, 313))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -173,7 +169,9 @@ public class AltaAfiliados extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_no)
                 .addGap(1, 1, 1)
-                .addComponent(jButton2)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(validar))
                 .addGap(66, 66, 66)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -275,14 +273,6 @@ public class AltaAfiliados extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void DniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DniActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DniActionPerformed
-
-    private void edaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_edaActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new MostrarAfililiado(principal1,true,persona).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -302,7 +292,8 @@ public class AltaAfiliados extends javax.swing.JDialog {
             direc.setText("");
             eda.setText("");
             telf.setText("");
-            Dni.setText("");     
+            Dni.setText(""); 
+            this.jButton2.setVisible(false);
         }
         catch(PersonaExistenteException ex){
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Alerta",0);
@@ -311,14 +302,6 @@ public class AltaAfiliados extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "no se permiten letras");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void telfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_telfActionPerformed
-
-    private void nombActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nombActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
      ListadeAfiliados lista= new ListadeAfiliados(principal1,true,this.jTextField6,persona);
@@ -329,6 +312,10 @@ public class AltaAfiliados extends javax.swing.JDialog {
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
        this.setNombreCuentaContable();
     }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void validarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validarActionPerformed
+        validar();
+    }//GEN-LAST:event_validarActionPerformed
 private void setNombreCuentaContable(){
         Afiliado cuenta=null;
         try {
@@ -363,5 +350,6 @@ private void setNombreCuentaContable(){
     private javax.swing.JTextField jTextField6;
     public static javax.swing.JTextField nomb;
     public static javax.swing.JTextField telf;
+    private javax.swing.JButton validar;
     // End of variables declaration//GEN-END:variables
 }
