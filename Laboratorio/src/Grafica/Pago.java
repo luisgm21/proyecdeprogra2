@@ -125,7 +125,7 @@ public class Pago extends javax.swing.JDialog {
     }//GEN-LAST:event_jTextField6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ListadePagoAfiliados2 lista= new ListadePagoAfiliados2(principal1,true,this.jTextField6,this.jTextField2,persona);
+        ListadePagoAfiliados2 lista= new ListadePagoAfiliados2(principal1,true,this.jTextField6,this.jTextField2,this.jTextField3,persona);
         lista.setVisible(true);
         this.setNombreCuentaContable();
     }//GEN-LAST:event_jButton1ActionPerformed

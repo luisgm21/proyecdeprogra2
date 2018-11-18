@@ -9,12 +9,14 @@ public class ListadePagoAfiliados2 extends javax.swing.JDialog {
     private DefaultListModel lista = new DefaultListModel();
      JTextField jTextField6;
      JTextField jTextField2;
+     JTextField jTextField3;
    
-    public ListadePagoAfiliados2(java.awt.Frame parent, boolean modal,JTextField jTextField6,JTextField jTextField2,GestorPersona gestor) {
+    public ListadePagoAfiliados2(java.awt.Frame parent, boolean modal,JTextField jTextField6,JTextField jTextField2,JTextField jTextField3,GestorPersona gestor) {
         super(parent, modal);
         initComponents();
         this.jTextField6=jTextField6;
         this.jTextField2=jTextField2;
+        this.jTextField3=jTextField3;
         for (int i = 0; i < gestor.getCuentas().size(); i++) {
             lista.addElement(gestor.getCuentas().get(i));
         }
@@ -85,14 +87,19 @@ public class ListadePagoAfiliados2 extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Afiliado s = jList1.getSelectedValue();
+        Integer suma=500;
+        for(int i =0; i<s.leerFamilia().size(); i++){
+            suma=suma + 100;
+        }
         if (s!=null){
         jTextField6.setText(s.getDni());
         jTextField2.setText(s.getFechaultpago().toString());
+        jTextField3.setText(suma.toString());
+        
         }
         this.setVisible(false);  
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
