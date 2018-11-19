@@ -100,7 +100,7 @@ public class ListadePagoAfiliados2 extends javax.swing.JDialog {
         }
         if (s!=null){
         jTextField6.setText(s.getDni());       
-       this.jDateChooser1.setCalendar(s.getFecha1());
+        this.jDateChooser1.setCalendar(s.getFecha1());
         jTextField3.setText(suma.toString());
         
         }
