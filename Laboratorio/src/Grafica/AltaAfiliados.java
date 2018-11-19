@@ -276,7 +276,7 @@ public class AltaAfiliados extends javax.swing.JDialog {
             Afiliado afiliado=new Afiliado(this.nomb.getText(),this.Dni.getText(),this.telf.getText(),this.direc.getText(),Integer.parseInt(this.eda.getText()));
             if(btn_si.isSelected()){
                 new AltaFamiliar(principal1,true,persona,afiliado).setVisible(true);
-               // persona.agregarCuenta(afiliado);
+                persona.agregarCuenta(afiliado);
                JOptionPane.showMessageDialog(rootPane, "Afiliado cargado correctamente");
                clean();
             }else if(btn_no.isSelected()){

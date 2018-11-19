@@ -211,7 +211,7 @@ public void validar(){
             /* for (int i = 0; i < afiliado.leerFamilia().size(); i++) {
             System.out.println(afiliado.leerFamilia().get(i));
             }*/ // Metodo para corroborar de que se ingresan correctamente los familiares
-            persona.agregarCuenta(afiliado);
+            //persona.agregarCuenta(afiliado);
             this.setVisible(false);
         }
         text_nombre.setText("");
