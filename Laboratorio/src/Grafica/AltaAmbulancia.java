@@ -3,20 +3,22 @@ package Grafica;
 
 import Clinica.Ambulancia;
 import Clinica.Cuadrilla;
+import Clinica.GestorMovil;
 import Excepciones.CamposVaciosException;
+import java.awt.Frame;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
 public class AltaAmbulancia extends javax.swing.JDialog {
 
-    private Ambulancia ambu;
-    
-    public AltaAmbulancia(java.awt.Frame parent, boolean modal) {
+    private GestorMovil movil;
+    private Frame principal1;
+    public AltaAmbulancia(java.awt.Frame parent, boolean modal,GestorMovil movil) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-        this.ambu=new Ambulancia();        
+        this.movil=movil;
         this.jButton1.setVisible(false);
     }
 
@@ -45,6 +47,7 @@ public class AltaAmbulancia extends javax.swing.JDialog {
         jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -77,11 +80,18 @@ public class AltaAmbulancia extends javax.swing.JDialog {
             }
         });
 
+        jButton3.setText("Mostrar moviles");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -99,9 +109,11 @@ public class AltaAmbulancia extends javax.swing.JDialog {
                             .addComponent(jTextField2)
                             .addComponent(jTextField3)
                             .addComponent(jTextField4))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(106, 106, 106))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,7 +138,9 @@ public class AltaAmbulancia extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(55, 55, 55))
+                .addGap(10, 10, 10)
+                .addComponent(jButton3)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -145,9 +159,9 @@ public class AltaAmbulancia extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       
-        ambu=new Ambulancia(this.jTextField1.getText(),this.jTextField2.getText(),this.jTextField3.getText(),this.jTextField4.getText());
-
-        ambu.agregarAmbulancia(); 
+        Ambulancia ambu = new Ambulancia(this.jTextField1.getText(),this.jTextField2.getText(),this.jTextField3.getText(),this.jTextField4.getText());
+        movil.agregarCuenta(ambu);
+         
 
         JOptionPane.showMessageDialog(rootPane, "Ambulancia cargada OK");                        
             
@@ -161,11 +175,16 @@ public class AltaAmbulancia extends javax.swing.JDialog {
         validar();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        new MostrarMoviles(principal1,true,movil).setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

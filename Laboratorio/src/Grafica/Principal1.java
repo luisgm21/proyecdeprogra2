@@ -2,14 +2,18 @@
 package Grafica;
 
 
+import Clinica.GestorMovil;
 import Clinica.GestorPersona;
+import Clinica.MovilDAO;
 import Clinica.PersonaDAO;
    
 public class Principal1 extends javax.swing.JFrame {
     
     private GestorPersona gestor;
-    public Principal1(PersonaDAO persona) {
+    private GestorMovil gestormovil;
+    public Principal1(PersonaDAO persona, MovilDAO movil) {
        this.gestor=new GestorPersona(persona); 
+       this.gestormovil = new GestorMovil(movil);
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -209,7 +213,7 @@ public class Principal1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        new AltaAmbulancia(this,true).setVisible(true);
+        new AltaAmbulancia(this,true,gestormovil).setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
 
    

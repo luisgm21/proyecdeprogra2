@@ -25,7 +25,7 @@ public class Cuadrilla {
     
 
     public void setCuadrilla(String cuadrilla) {
-        this.idcuadrilla = idcuadrilla;
+        this.idcuadrilla = cuadrilla;
     }
 
     public void setEstado(String estado) {
