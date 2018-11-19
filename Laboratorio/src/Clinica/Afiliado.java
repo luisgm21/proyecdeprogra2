@@ -5,27 +5,40 @@ import Grafica.AltaAfiliados;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 
 
 public class Afiliado extends Persona{
     
-    private LocalDateTime fechaultpago;
+   // private LocalDateTime fechaultpago;
     private ArrayList<Persona>familia=new ArrayList();
     private int numdefam;
     private PagoAfiliado pago;
-    DateTimeFormatter miFormatFecha = DateTimeFormatter.ofPattern("d/MM/yyyy H:mm:ss");
+    Calendar fecha1 = GregorianCalendar.getInstance(); 
+    //DateTimeFormatter miFormatFecha = DateTimeFormatter.ofPattern("d/MM/yyyy H:mm:ss");
     
     public Afiliado(){
         
     }
-    public LocalDateTime getFechaultpago() {
+
+    public Calendar getFecha1() {
+        return fecha1;
+    }
+
+    public void setFecha1(Calendar fecha1) {
+        this.fecha1 = fecha1;
+    }
+    
+    
+    /*public LocalDateTime getFechaultpago() {
         return fechaultpago;
     }
 
     public void setFechaultpago(LocalDateTime fechaultpago) {
         this.fechaultpago = fechaultpago;
-    }
+    }*/
 
     public int getNumdefam() {
         return numdefam;
@@ -44,7 +57,8 @@ public class Afiliado extends Persona{
     }
     public Afiliado(String nombre, String dni, String telefono, String direccion, Integer edad){
         super(nombre,dni,telefono,direccion,edad);
-        fechaultpago=LocalDateTime.parse("18/11/2018 00:00:00", miFormatFecha);
+        
+        //fechaultpago=LocalDateTime.parse("18/11/2018 00:00:00", miFormatFecha);
     }
     public void agregarFamiliar(Persona familiar){
         familia.add(familiar);

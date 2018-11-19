@@ -2,7 +2,11 @@
 package Grafica;
 import Clinica.Afiliado;
 import Clinica.GestorPersona;
+import com.toedter.calendar.JDateChooser;
+import java.text.DateFormat;
+import java.util.Locale;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class ListadePagoAfiliados2 extends javax.swing.JDialog {
@@ -10,12 +14,15 @@ public class ListadePagoAfiliados2 extends javax.swing.JDialog {
      JTextField jTextField6;
      JTextField jTextField2;
      JTextField jTextField3;
+     JDateChooser jDateChooser1;
+     
    
-    public ListadePagoAfiliados2(java.awt.Frame parent, boolean modal,JTextField jTextField6,JTextField jTextField2,JTextField jTextField3,GestorPersona gestor) {
+    public ListadePagoAfiliados2(java.awt.Frame parent, boolean modal,JTextField jTextField6,JDateChooser jDateChooser1,JTextField jTextField3,GestorPersona gestor) {
         super(parent, modal);
         initComponents();
         this.jTextField6=jTextField6;
         this.jTextField2=jTextField2;
+        this.jDateChooser1=jDateChooser1;
         this.jTextField3=jTextField3;
         for (int i = 0; i < gestor.getCuentas().size(); i++) {
             lista.addElement(gestor.getCuentas().get(i));
@@ -92,8 +99,8 @@ public class ListadePagoAfiliados2 extends javax.swing.JDialog {
             suma=suma + 100;
         }
         if (s!=null){
-        jTextField6.setText(s.getDni());
-        jTextField2.setText(s.getFechaultpago().toString());
+        jTextField6.setText(s.getDni());       
+       this.jDateChooser1.setCalendar(s.getFecha1());
         jTextField3.setText(suma.toString());
         
         }
