@@ -15,20 +15,24 @@ public class ListadePagoAfiliados2 extends javax.swing.JDialog {
      JTextField jTextField2;
      JTextField jTextField3;
      JDateChooser jDateChooser1;
+     JDateChooser jDateChooser3;
+     
      
    
-    public ListadePagoAfiliados2(java.awt.Frame parent, boolean modal,JTextField jTextField6,JDateChooser jDateChooser1,JTextField jTextField3,GestorPersona gestor) {
+    public ListadePagoAfiliados2(java.awt.Frame parent, boolean modal,JTextField jTextField6,JDateChooser jDateChooser1,JTextField jTextField3,GestorPersona gestor,JDateChooser jDateChooser) {
         super(parent, modal);
         initComponents();
         this.jTextField6=jTextField6;
         this.jTextField2=jTextField2;
         this.jDateChooser1=jDateChooser1;
+        this.jDateChooser3=jDateChooser3;
         this.jTextField3=jTextField3;
         for (int i = 0; i < gestor.getCuentas().size(); i++) {
             lista.addElement(gestor.getCuentas().get(i));
         }
         jList1.setModel(lista);
         setLocationRelativeTo(parent);
+        
     }
 
     
@@ -93,6 +97,7 @@ public class ListadePagoAfiliados2 extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
         Afiliado s = jList1.getSelectedValue();
         Integer suma=500;
         for(int i =0; i<s.leerFamilia().size(); i++){
@@ -100,11 +105,13 @@ public class ListadePagoAfiliados2 extends javax.swing.JDialog {
         }
         if (s!=null){
         jTextField6.setText(s.getDni());       
-        this.jDateChooser1.setCalendar(s.getFecha1());
+        this.jDateChooser1.setCalendar(s.getFechaActual());
+            
         jTextField3.setText(suma.toString());
         
         }
         this.setVisible(false);  
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
