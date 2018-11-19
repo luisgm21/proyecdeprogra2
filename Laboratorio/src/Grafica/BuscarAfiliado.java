@@ -17,6 +17,9 @@ public class BuscarAfiliado extends javax.swing.JDialog {
         initComponents();
         this.persona=persona;
         setLocationRelativeTo(parent);
+        btn_mostrar.setVisible(false);
+        btn_modificar.setVisible(false);
+        btn_eliminar.setVisible(false);
     }
     private void setNombreCuentaContable(){
         Afiliado cuenta=null;
@@ -28,18 +31,24 @@ public class BuscarAfiliado extends javax.swing.JDialog {
             this.jLabel1.setText((cuenta!=null)?cuenta.getNombre():"Cuenta Inexistente");
         }
     }
-   
+    public void reset(){
+        btn_mostrar.setVisible(false);
+        btn_modificar.setVisible(false);
+        btn_eliminar.setVisible(false);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btn_buscar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btn_seleccionar = new javax.swing.JButton();
+        btn_mostrar = new javax.swing.JButton();
+        btn_eliminar = new javax.swing.JButton();
+        btn_modificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -51,10 +60,10 @@ public class BuscarAfiliado extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setText("Buscar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_buscar.setText("Buscar");
+        btn_buscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_buscarActionPerformed(evt);
             }
         });
 
@@ -62,17 +71,31 @@ public class BuscarAfiliado extends javax.swing.JDialog {
 
         jLabel2.setText("DNI:");
 
-        jButton2.setText("Seleccionar Afiliado");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_seleccionar.setText("Seleccionar Afiliado");
+        btn_seleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_seleccionarActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Mostrar Familia");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btn_mostrar.setText("Mostrar Familia");
+        btn_mostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btn_mostrarActionPerformed(evt);
+            }
+        });
+
+        btn_eliminar.setText("Eliminar");
+        btn_eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_eliminarActionPerformed(evt);
+            }
+        });
+
+        btn_modificar.setText("Modificar");
+        btn_modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modificarActionPerformed(evt);
             }
         });
 
@@ -83,17 +106,20 @@ public class BuscarAfiliado extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
+                    .addComponent(btn_seleccionar)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
+                        .addComponent(btn_buscar)))
                 .addContainerGap(82, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_mostrar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_modificar)
+                    .addComponent(btn_eliminar))
                 .addGap(22, 22, 22))
         );
         jPanel1Layout.setVerticalGroup(
@@ -104,14 +130,18 @@ public class BuscarAfiliado extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(btn_buscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(53, 53, 53))
+                .addComponent(btn_seleccionar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(btn_mostrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_modificar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_eliminar)
+                .addGap(21, 21, 21))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -128,29 +158,56 @@ public class BuscarAfiliado extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_buscarActionPerformed
      ListadeAfiliados lista= new ListadeAfiliados(principal1,true,this.jTextField1,persona);
      lista.setVisible(true);
      this.setNombreCuentaContable();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_buscarActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         this.setNombreCuentaContable();
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_seleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_seleccionarActionPerformed
+       try{
         this.afiliado=(Afiliado) persona.getCuenta(jTextField1.getText());
-        afiliado.ImprimirDatos();
-    }//GEN-LAST:event_jButton2ActionPerformed
+            afiliado.ImprimirDatos();
+            btn_mostrar.setVisible(true);
+            btn_modificar.setVisible(true);
+            btn_eliminar.setVisible(true);
+       }
+       catch(java.lang.NullPointerException ex){
+           JOptionPane.showMessageDialog(null, "No selecciono ningun Afiliado");
+       }
+       
+    }//GEN-LAST:event_btn_seleccionarActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btn_mostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_mostrarActionPerformed
         new MostrarFamiliares(principal1,true,afiliado).setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+        reset();
+    }//GEN-LAST:event_btn_mostrarActionPerformed
+
+    private void btn_eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarActionPerformed
+        try{
+           persona.eliminarCuenta(jTextField1.getText());
+           reset();
+       }
+       catch(java.lang.NullPointerException ex){
+           JOptionPane.showMessageDialog(null, "No selecciono ningun Afiliado");
+       }
+    }//GEN-LAST:event_btn_eliminarActionPerformed
+
+    private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
+        new ModificarAfiliados(principal1,true,afiliado,persona).setVisible(true);
+        reset();
+    }//GEN-LAST:event_btn_modificarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btn_buscar;
+    private javax.swing.JButton btn_eliminar;
+    private javax.swing.JButton btn_modificar;
+    private javax.swing.JButton btn_mostrar;
+    private javax.swing.JButton btn_seleccionar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

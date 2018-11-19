@@ -12,6 +12,7 @@ public class MostrarFamiliares extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.afiliado=afiliado;
+        setLocationRelativeTo(parent);
         mostrar();
     }
     

@@ -30,7 +30,13 @@ public class AltaAfiliados extends javax.swing.JDialog {
         }
         
     }
-    
+    public void clean(){
+        nomb.setText("");
+        direc.setText("");
+        eda.setText("");
+        telf.setText("");
+        Dni.setText(""); 
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -92,7 +98,7 @@ public class AltaAfiliados extends javax.swing.JDialog {
         jLabel8.setText("FAMILIA DEL AFILIADO:");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel9.setText("¿Tiene Familiares?");
+        jLabel9.setText("¿Desea añadir un grupo familiar?");
 
         btn_si.setBackground(new java.awt.Color(51, 155, 255));
         btn_si.setText("SI");
@@ -125,28 +131,27 @@ public class AltaAfiliados extends javax.swing.JDialog {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(validar)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(313, 313, 313))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel8))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(btn_si, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_no, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
-                        .addComponent(jButton3)))
-                .addContainerGap(561, Short.MAX_VALUE))
+                        .addComponent(jButton3))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btn_no)
+                            .addComponent(btn_si, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(259, 259, 259)
+                        .addComponent(validar)
+                        .addGap(41, 41, 41)
+                        .addComponent(jButton2)))
+                .addContainerGap(297, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,11 +164,11 @@ public class AltaAfiliados extends javax.swing.JDialog {
                     .addComponent(btn_si))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_no)
-                .addGap(1, 1, 1)
+                .addGap(42, 42, 42)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(validar))
-                .addGap(66, 66, 66)
+                    .addComponent(validar)
+                    .addComponent(jButton2))
+                .addGap(25, 25, 25)
                 .addComponent(jButton3)
                 .addContainerGap(309, Short.MAX_VALUE))
         );
@@ -211,7 +216,7 @@ public class AltaAfiliados extends javax.swing.JDialog {
                         .addGap(75, 75, 75))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 8, Short.MAX_VALUE))
+                .addGap(0, 19, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,16 +277,17 @@ public class AltaAfiliados extends javax.swing.JDialog {
             if(btn_si.isSelected()){
                 new AltaFamiliar(principal1,true,persona,afiliado).setVisible(true);
                // persona.agregarCuenta(afiliado);
+               JOptionPane.showMessageDialog(rootPane, "Afiliado cargado correctamente");
+               clean();
             }else if(btn_no.isSelected()){
                 //afiliado.CapturarDatos();
                 persona.agregarCuenta(afiliado);
+                JOptionPane.showMessageDialog(rootPane, "Afiliado cargado correctamente");
+                clean();
+            }else{
+                JOptionPane.showMessageDialog(null, "Afiliado no cargado"+" "+"No selecciono ninguna opcion");
             }
-            JOptionPane.showMessageDialog(rootPane, "Afiliado cargado correctamente");
-            nomb.setText("");
-            direc.setText("");
-            eda.setText("");
-            telf.setText("");
-            Dni.setText(""); 
+            
             this.jButton2.setVisible(false);
         }
         catch(PersonaExistenteException ex){
