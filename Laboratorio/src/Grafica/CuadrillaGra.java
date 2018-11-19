@@ -5,6 +5,7 @@ import Clinica.Ambulancia;
 import Clinica.Chofer;
 import Clinica.Cuadrilla;
 import Clinica.Enfermero;
+import Clinica.GestorCuadrilla;
 import Clinica.GestorPersona;
 import Clinica.Medico;
 import Clinica.Persona;
@@ -17,8 +18,8 @@ public class CuadrillaGra extends javax.swing.JDialog {
 
     private DefaultListModel listModel = new DefaultListModel();
     
-    private GestorPersona persona;
-    CuadrillaGra(java.awt.Frame parent, boolean modal, GestorPersona persona) {
+    private GestorCuadrilla persona;
+    CuadrillaGra(java.awt.Frame parent, boolean modal, GestorCuadrilla persona) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);

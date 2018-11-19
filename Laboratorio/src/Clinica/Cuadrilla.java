@@ -9,8 +9,10 @@ import java.util.ArrayList;
 public class Cuadrilla {
     private String idcuadrilla;
     private String estado="Desocupado";
-    
-    
+    private Medico medico;
+    private Chofer chofer;
+    private Enfermero enfermero;
+    private Ambulancia vehiculo;
     
     
     public Cuadrilla(String cuadrilla, String estado) {
@@ -36,10 +38,39 @@ public class Cuadrilla {
         return idcuadrilla;
     }
 
+    public void setMedico(Medico medico){
+        this.medico=medico;
+    }
     
+    public void setChofer(Chofer chofer){
+        this.chofer=chofer;
+    }
     
+    public void setEnfermero(Enfermero enfermero){
+        this.enfermero=enfermero;
+    }
     
+    public void setVehiculo(Ambulancia vehiculo){
+        this.vehiculo=vehiculo;
+    }
     
+    public void setIdcuadrilla(String id){
+        idcuadrilla=id;
+    }
+    public Medico getMedico(){
+        return medico;
+    }
+    public Chofer getChofer(){
+        return chofer;
+    }
+    
+    public Enfermero getEnfermero(){
+        return enfermero;
+    }
+    
+    public Ambulancia getVehiculo(){
+        return vehiculo;
+    }
     
        
     /*public void getLista(){   

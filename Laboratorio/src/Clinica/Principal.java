@@ -10,7 +10,8 @@ public class Principal {
     public static void main(String[] args) {
         PersonaDAO persona=new ArrayListPersona();
         MovilDAO movil = new ArrayListMovil();
-        Principal1 prin = new Principal1(persona,movil);
+        CuadrillaDAO cuad = new ArrayListCuadrilla();
+        Principal1 prin = new Principal1(persona,movil,cuad);
         prin.setVisible(true);
         
        

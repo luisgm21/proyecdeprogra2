@@ -1,16 +1,21 @@
 
 package Grafica;
 
+import Clinica.GestorCuadrilla;
 import Clinica.SolicitudEm;
+import java.awt.Frame;
 import javax.swing.JOptionPane;
 
 
 public class Emergencia extends javax.swing.JDialog {
 
     private SolicitudEm emergencia;
-    public Emergencia(java.awt.Frame parent, boolean modal) {
+    private GestorCuadrilla quad;
+    private Frame principal1;
+    public Emergencia(java.awt.Frame parent, boolean modal, GestorCuadrilla quad) {
         super(parent, modal);
         initComponents();
+        this.quad=quad;
         setLocationRelativeTo(parent);
         //this.emergencia=emergencia;
         this.emergencia=new SolicitudEm();
@@ -37,6 +42,7 @@ public class Emergencia extends javax.swing.JDialog {
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Solicitud de emergencia");
@@ -79,6 +85,13 @@ public class Emergencia extends javax.swing.JDialog {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        jButton1.setText("elegir cuadrilla");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -100,6 +113,8 @@ public class Emergencia extends javax.swing.JDialog {
                                     .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
                                     .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jTextField3))
+                                .addGap(42, 42, 42)
+                                .addComponent(jButton1)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jTextField4)
@@ -133,11 +148,12 @@ public class Emergencia extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -185,9 +201,15 @@ public class Emergencia extends javax.swing.JDialog {
        
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ElegirCuadrilla lista= new ElegirCuadrilla(principal1,true,this.jTextField3,quad);
+        lista.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
