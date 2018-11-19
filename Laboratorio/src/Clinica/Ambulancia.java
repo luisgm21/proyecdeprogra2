@@ -44,4 +44,9 @@ public class Ambulancia extends Movil {
         lista.add(super.getPatente());
         return (lista);
     }   
+    
+    @Override
+    public String toString(){
+        return this.getMarca()+ " " +this.getModelo();
+    }
 }
