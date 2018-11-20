@@ -28,7 +28,7 @@ public class MostrarAfililiado extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("MOSTRAR AFILIADOS");
 
-        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("AFILIADOS CARGADOS"));
 
         jTableAfiliado.setModel(new javax.swing.table.DefaultTableModel(

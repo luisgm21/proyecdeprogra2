@@ -51,7 +51,7 @@ public class ModificarAfiliados extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(102, 204, 240));
+        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Modificar Afiliado:");

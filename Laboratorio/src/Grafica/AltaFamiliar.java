@@ -55,7 +55,7 @@ public void validar(){
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(102, 204, 240));
+        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
 
         jLabel1.setText("Nombre:");
 
