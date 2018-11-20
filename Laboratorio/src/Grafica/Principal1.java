@@ -6,18 +6,22 @@ import Clinica.CuadrillaDAO;
 import Clinica.GestorCuadrilla;
 import Clinica.GestorMovil;
 import Clinica.GestorPersona;
+import Clinica.GestorSolicitud;
 import Clinica.MovilDAO;
 import Clinica.PersonaDAO;
+import Clinica.SolicitudDAO;
    
 public class Principal1 extends javax.swing.JFrame {
     
     private GestorPersona gestor;
     private GestorMovil gestormovil;
     private GestorCuadrilla gestorcuad;
-    public Principal1(PersonaDAO persona, MovilDAO movil, CuadrillaDAO cuad) {
+    private GestorSolicitud gestorsoli;
+    public Principal1(PersonaDAO persona, MovilDAO movil, CuadrillaDAO cuad, SolicitudDAO soli) {
        this.gestor=new GestorPersona(persona); 
        this.gestormovil = new GestorMovil(movil);
        this.gestorcuad = new GestorCuadrilla(cuad);
+       this.gestorsoli= new GestorSolicitud(soli);
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -217,7 +221,7 @@ public class Principal1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        new Emergencia(this,true,gestor,gestorcuad).setVisible(true);        
+        new Emergencia(this,true,gestor,gestorcuad,gestorsoli).setVisible(true);        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
