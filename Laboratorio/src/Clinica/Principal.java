@@ -11,7 +11,8 @@ public class Principal {
         PersonaDAO persona=new ArrayListPersona();
         MovilDAO movil = new ArrayListMovil();
         CuadrillaDAO cuad = new ArrayListCuadrilla();
-        Principal1 prin = new Principal1(persona,movil,cuad);
+        SolicitudDAO soli = new ArrayListSolicitud();
+        Principal1 prin = new Principal1(persona,movil,cuad,soli);
         prin.setVisible(true);
         
        

@@ -1,37 +1,34 @@
 
 package Grafica;
 
-import Clinica.Cuadrilla;
-import Clinica.Enfermero;
-import Clinica.GestorCuadrilla;
+import Clinica.Afiliado;
 import Clinica.GestorPersona;
 import Clinica.SolicitudEm;
 import javax.swing.DefaultListModel;
 import javax.swing.JTextField;
 
 
-public class ElegirCuadrilla extends javax.swing.JDialog {
+public class AfiliadoEmergencia extends javax.swing.JDialog {
 
-     private DefaultListModel lista = new DefaultListModel();
-     JTextField jTextField6;
-     private SolicitudEm emergencia;
-    
-    public ElegirCuadrilla(java.awt.Frame parent, boolean modal, JTextField jTextField1, GestorCuadrilla gestor, SolicitudEm emergencia) {
+    private DefaultListModel lista = new DefaultListModel();
+    JTextField jTextField6;
+    private SolicitudEm emergencia;
+    public AfiliadoEmergencia(java.awt.Frame parent, boolean modal,JTextField jTextField6,GestorPersona gestor, SolicitudEm emergencia) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
-        this.jTextField6=jTextField1;
+        this.jTextField6=jTextField6;
         this.emergencia=emergencia;
-        
         for (int i = 0; i < gestor.getCuentas().size(); i++) {
-        
-            lista.addElement(gestor.getCuentas().get(i));
-        
+            if(gestor.getCuentas().get(i).getClass()==Afiliado.class){
+                lista.addElement(gestor.getCuentas().get(i));
+            }
             
         }
         jList1.setModel(lista);
     }
 
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -43,8 +40,8 @@ public class ElegirCuadrilla extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("ELEGIR CUADRILLA"));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("AFILIADOS"));
 
         jScrollPane1.setViewportView(jList1);
 
@@ -61,21 +58,21 @@ public class ElegirCuadrilla extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(64, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(38, 38, 38))
+                .addGap(45, 45, 45))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(jButton1)
-                .addContainerGap())
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -93,19 +90,20 @@ public class ElegirCuadrilla extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Cuadrilla s = jList1.getSelectedValue();
+        Afiliado s = jList1.getSelectedValue();
         if (s!=null){
-        jTextField6.setText(s.getIdcuadrilla());
-        
+        jTextField6.setText(s.getDni());
         }
-        emergencia.setGrupo(s);
-        this.setVisible(false); 
+        emergencia.setPaciente(s);
+        this.setVisible(false);   
     }//GEN-LAST:event_jButton1ActionPerformed
 
     
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JList<Cuadrilla> jList1;
+    private javax.swing.JList<Afiliado> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

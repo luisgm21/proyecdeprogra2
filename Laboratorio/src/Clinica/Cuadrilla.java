@@ -72,6 +72,10 @@ public class Cuadrilla {
         return vehiculo;
     }
     
+    @Override
+    public String toString(){
+        return this.getIdcuadrilla();
+    }
        
     /*public void getLista(){   
         Ambulancia ambu = new Ambulancia("AC 380 KK");
