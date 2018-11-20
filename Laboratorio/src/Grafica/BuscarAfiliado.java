@@ -17,9 +17,7 @@ public class BuscarAfiliado extends javax.swing.JDialog {
         initComponents();
         this.persona=persona;
         setLocationRelativeTo(parent);
-        btn_mostrar.setVisible(false);
-        btn_modificar.setVisible(false);
-        btn_eliminar.setVisible(false);
+        reset();
     }
     private void setNombreCuentaContable(){
         Afiliado cuenta=null;
@@ -35,6 +33,7 @@ public class BuscarAfiliado extends javax.swing.JDialog {
         btn_mostrar.setVisible(false);
         btn_modificar.setVisible(false);
         btn_eliminar.setVisible(false);
+        btn_agregar.setVisible(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -49,7 +48,7 @@ public class BuscarAfiliado extends javax.swing.JDialog {
         btn_mostrar = new javax.swing.JButton();
         btn_eliminar = new javax.swing.JButton();
         btn_modificar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btn_agregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -100,10 +99,10 @@ public class BuscarAfiliado extends javax.swing.JDialog {
             }
         });
 
-        jButton1.setText("Agregar Familiar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_agregar.setText("Agregar Familiar");
+        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_agregarActionPerformed(evt);
             }
         });
 
@@ -137,7 +136,7 @@ public class BuscarAfiliado extends javax.swing.JDialog {
                 .addGap(22, 22, 22))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(173, 173, 173)
-                .addComponent(jButton1)
+                .addComponent(btn_agregar)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -154,7 +153,7 @@ public class BuscarAfiliado extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_seleccionar)
-                    .addComponent(jButton1))
+                    .addComponent(btn_agregar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(btn_mostrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -195,6 +194,7 @@ public class BuscarAfiliado extends javax.swing.JDialog {
             btn_mostrar.setVisible(true);
             btn_modificar.setVisible(true);
             btn_eliminar.setVisible(true);
+            btn_agregar.setVisible(true);
        }
        catch(java.lang.NullPointerException ex){
            JOptionPane.showMessageDialog(null, "No selecciono ningun Afiliado");
@@ -222,17 +222,18 @@ public class BuscarAfiliado extends javax.swing.JDialog {
         reset();
     }//GEN-LAST:event_btn_modificarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
         new AltaFamiliar(principal1,true,persona,afiliado).setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        reset();
+    }//GEN-LAST:event_btn_agregarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_agregar;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_eliminar;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_mostrar;
     private javax.swing.JButton btn_seleccionar;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
