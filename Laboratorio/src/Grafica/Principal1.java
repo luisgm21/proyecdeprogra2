@@ -79,7 +79,7 @@ public class Principal1 extends javax.swing.JFrame {
             }
         });
 
-        opcion1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ver", "Empleados", "Cuadrillas" }));
+        opcion1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ver", "Empleados", "Cuadrillas", "Afiliados", "Vehiculos" }));
         opcion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 opcion1ActionPerformed(evt);
@@ -191,6 +191,12 @@ public class Principal1 extends javax.swing.JFrame {
         } 
         if (opcion1.getSelectedItem()=="Cuadrillas"){
            new Cuadrillas(this,true,gestorcuad).setVisible(true);
+        } 
+        if (opcion1.getSelectedItem()=="Afiliados"){
+           new MostrarAfililiado(this,true,gestor).setVisible(true);
+        } 
+        if (opcion1.getSelectedItem()=="Vehiculos"){
+           new MostrarMoviles(this,true,gestormovil).setVisible(true);
         } 
     }//GEN-LAST:event_opcion1ActionPerformed
 
