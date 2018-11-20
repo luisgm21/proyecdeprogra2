@@ -5,6 +5,7 @@ import Clinica.Administrativo;
 import Clinica.Cuadrilla;
 import Clinica.Enfermero;
 import Clinica.GestorPersona;
+import Clinica.SolicitudEm;
 import javax.swing.DefaultListModel;
 import javax.swing.JTextField;
 
@@ -14,13 +15,15 @@ public class ElegirAdministrativos extends javax.swing.JDialog {
      private DefaultListModel lista = new DefaultListModel();
      JTextField jTextField6;
      private GestorPersona gestor;
+     private SolicitudEm emergencia;
     
-    public ElegirAdministrativos(java.awt.Frame parent, boolean modal, JTextField jTextField1, GestorPersona gestor) {
+    public ElegirAdministrativos(java.awt.Frame parent, boolean modal, JTextField jTextField1, GestorPersona gestor, SolicitudEm emergencia) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
         this.jTextField6=jTextField1;
         this.gestor=gestor;
+        this.emergencia=emergencia;
         for (int i = 0; i < gestor.getCuentas().size(); i++) {
         if(gestor.getCuentas().get(i).getClass()==Administrativo.class){
             lista.addElement(gestor.getCuentas().get(i));
@@ -99,6 +102,7 @@ public class ElegirAdministrativos extends javax.swing.JDialog {
         jTextField6.setText(s.getNombre());
         
         }
+        emergencia.setReceptor(s);
         this.setVisible(false);  
     }//GEN-LAST:event_jButton1ActionPerformed
 

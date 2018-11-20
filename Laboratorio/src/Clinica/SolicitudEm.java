@@ -7,17 +7,16 @@ public class SolicitudEm {
     private Afiliado paciente;
     private Cuadrilla grupo;
     private String tipo;
-    private Integer id;
     private String domicilio;
-    private String tipoemergencia;
-    private String nombre;
+    
+    private Administrativo receptor;
     //id,nombre,domicilio,tipoemergencia));
     
     public SolicitudEm(){
 
     }
 
-    public SolicitudEm(Afiliado paciente, Cuadrilla grupo, String tipo){
+    public SolicitudEm(Afiliado paciente, Cuadrilla grupo, String direccion, String tipo, Administrativo receptor){
         this.paciente=paciente;
         this.grupo=grupo;
         this.tipo=tipo;
@@ -25,20 +24,15 @@ public class SolicitudEm {
     
     
     
-    public SolicitudEm(Integer id,String nombre,String domicilio,String tipoemergencia){
-        this.domicilio=domicilio;
-        this.id=id;
-        this.tipoemergencia=tipoemergencia;
-        this.nombre=nombre;        
-    }
+    
 
    
     public void solicitudEm(){        
         JOptionPane.showMessageDialog(null, "MORELI GATO");
-        JOptionPane.showMessageDialog(null,this.id);
-        JOptionPane.showMessageDialog(null,this.domicilio);
-        JOptionPane.showMessageDialog(null,this.tipoemergencia);
-        JOptionPane.showMessageDialog(null,this.nombre);        
+        
+        JOptionPane.showMessageDialog(null, this.getDomicilio());
+        JOptionPane.showMessageDialog(null, this.getTipo());
+               
         
     }
     
@@ -52,6 +46,61 @@ public class SolicitudEm {
         JOptionPane.showMessageDialog(null,nombre);        
         System.out.println(domicilio);
     }*/
+
+    
+    public Afiliado getPaciente() {
+        return paciente;
+    }
+
+   
+    public void setPaciente(Afiliado paciente) {
+        this.paciente = paciente;
+    }
+
+    
+    public Cuadrilla getGrupo() {
+        return grupo;
+    }
+
+    
+    public void setGrupo(Cuadrilla grupo) {
+        this.grupo = grupo;
+    }
+
+   
+    public String getTipo() {
+        return tipo;
+    }
+
+   
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    
+    public String getDomicilio() {
+        return domicilio;
+    }
+
+    
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
+    }
+
+    
+    
+
+   
+    public Administrativo getReceptor() {
+        return receptor;
+    }
+
+   
+    public void setReceptor(Administrativo receptor) {
+        this.receptor = receptor;
+    }
+
+    
 
    
 }
