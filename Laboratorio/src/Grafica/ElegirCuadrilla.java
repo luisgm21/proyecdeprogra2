@@ -23,9 +23,16 @@ public class ElegirCuadrilla extends javax.swing.JDialog {
         this.jTextField6=jTextField1;
         this.emergencia=emergencia;
         
-        for (int i = 0; i < gestor.getCuentas().size(); i++) {
-        
-            lista.addElement(gestor.getCuentas().get(i));
+        for(Object object:gestor.getCuentas()){               
+            if(object.getClass()==Cuadrilla.class){
+                Cuadrilla aux=new Cuadrilla();
+                aux=(Cuadrilla)object;             
+                if(aux.getEstado()=="Desocupado"){
+                    lista.addElement(object);
+                }
+                
+                    
+                }
         
             
         }

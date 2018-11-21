@@ -259,6 +259,7 @@ public class Emergencia extends javax.swing.JDialog {
             emergencia.setDomicilio(jTextField4.getText());
             emergencia.setTipo(jTextArea1.getText());
             emergencia.setFecha(fechaActual);
+            emergencia.getGrupo().setEstado("ocupado");
             soli.agregarCuenta(emergencia);
             
         

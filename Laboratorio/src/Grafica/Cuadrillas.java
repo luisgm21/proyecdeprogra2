@@ -75,7 +75,7 @@ public class Cuadrillas extends javax.swing.JDialog {
     
     public void empleados(){
         int i=0;
-        String [][] matris= new String[persona.getCuentas().size()][5];
+        String [][] matris= new String[persona.getCuentas().size()][6];
         for(Object object:persona.getCuentas()){               
             
                 Cuadrilla cuadrilla = new Cuadrilla();
@@ -85,6 +85,7 @@ public class Cuadrillas extends javax.swing.JDialog {
                 matris[i][2]=cuadrilla.getChofer().getNombre();
                 matris[i][3]=cuadrilla.getEnfermero().getNombre();
                 matris[i][4]=cuadrilla.getVehiculo().getModelo();
+                matris[i][5]=cuadrilla.getEstado();
                 
                 i++;
             }   

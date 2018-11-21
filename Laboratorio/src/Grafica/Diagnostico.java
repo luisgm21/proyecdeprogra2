@@ -136,7 +136,9 @@ public class Diagnostico extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         solicitud.setDiagnostico(jTextArea1.getText());
+        solicitud.getGrupo().setEstado("Desocupado");
         soli.agregarCuenta(solicitud);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
    

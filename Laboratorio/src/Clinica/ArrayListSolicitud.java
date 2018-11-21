@@ -38,10 +38,10 @@ public class ArrayListSolicitud implements SolicitudDAO {
 
     @Override
     public void insert(SolicitudEm insertRecord) {
-        SolicitudEm existe = findByPK(insertRecord.getDomicilio());
-        if (existe != null) {
-            throw new PersonaExistenteException("Solicitud existente " + existe.getDomicilio());
-        }
+        //SolicitudEm existe = findByPK(insertRecord.getDomicilio());
+        //if (existe != null) {
+            //throw new PersonaExistenteException("Solicitud existente " + existe.getDomicilio());
+        //}
         lista.add(insertRecord);
     }
 
