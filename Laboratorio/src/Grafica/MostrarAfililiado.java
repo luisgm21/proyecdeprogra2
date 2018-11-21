@@ -3,19 +3,32 @@ package Grafica;
 
 import Clinica.Afiliado;
 import Clinica.GestorPersona;
+import java.util.ArrayList;
 
 
 public class MostrarAfililiado extends javax.swing.JDialog {
 
     private GestorPersona persona;
+    private ArrayList<Afiliado>listaauxiliar=new ArrayList();
     public MostrarAfililiado(java.awt.Frame parent, boolean modal,GestorPersona gestor) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
         this.persona=gestor;
+        iniciar();
         mostrar();
     }
-
+    public void iniciar(){
+        for (int i = 0; i < persona.getCuentas().size(); i++) {
+            Object auxiliar=persona.getCuentas().get(i);
+            
+            if(auxiliar.getClass()==Afiliado.class){
+                Afiliado auxiliar2=(Afiliado)auxiliar;
+                listaauxiliar.add(auxiliar2);
+            }
+            
+        }
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -76,14 +89,14 @@ public class MostrarAfililiado extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
    public void mostrar(){
-        String [][] matris= new String[persona.getCuentas().size()][5];
-        for (int i = 0; i < persona.getCuentas().size(); i++) {
-            Afiliado afiliado= (Afiliado)persona.getCuentas().get(i);
-            matris[i][0]=afiliado.getNombre();
-            matris[i][1]=afiliado.getDni();
-            matris[i][2]=afiliado.getTelefono();
-            matris[i][3]=afiliado.getDireccion();
-            matris[i][4]=Integer.toString(afiliado.getEdad());
+        String [][] matris= new String[listaauxiliar.size()][5];
+        for (int i = 0; i < listaauxiliar.size(); i++) {
+                Afiliado afiliado= listaauxiliar.get(i);
+                matris[i][0]=afiliado.getNombre();
+                matris[i][1]=afiliado.getDni();
+                matris[i][2]=afiliado.getTelefono();
+                matris[i][3]=afiliado.getDireccion();
+                matris[i][4]=Integer.toString(afiliado.getEdad()); 
         }
       jTableAfiliado.setModel(new javax.swing.table.DefaultTableModel(
            matris,

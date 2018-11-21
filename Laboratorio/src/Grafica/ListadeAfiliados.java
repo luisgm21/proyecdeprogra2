@@ -3,12 +3,15 @@ package Grafica;
 
 import Clinica.Afiliado;
 import Clinica.GestorPersona;
+import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JTextField;
 
 
 public class ListadeAfiliados extends javax.swing.JDialog {
     private DefaultListModel lista = new DefaultListModel();
+    private GestorPersona persona;
+    private ArrayList<Afiliado>listaauxiliar=new ArrayList();
     JTextField jTextField6;
     
     public ListadeAfiliados(java.awt.Frame parent, boolean modal,JTextField jTextField6,GestorPersona gestor) {
@@ -16,12 +19,24 @@ public class ListadeAfiliados extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(parent);
         this.jTextField6=jTextField6;
-        for (int i = 0; i < gestor.getCuentas().size(); i++) {
-            lista.addElement(gestor.getCuentas().get(i));
+        this.persona=gestor;
+        iniciar();
+        for (int i = 0; i < listaauxiliar.size(); i++) {
+            lista.addElement(listaauxiliar.get(i));
         }
         jList1.setModel(lista);
     }
-
+    public void iniciar(){
+        for (int i = 0; i < persona.getCuentas().size(); i++) {
+            Object auxiliar=persona.getCuentas().get(i);
+            
+            if(auxiliar.getClass()==Afiliado.class){
+                Afiliado auxiliar2=(Afiliado)auxiliar;
+                listaauxiliar.add(auxiliar2);
+            }
+            
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

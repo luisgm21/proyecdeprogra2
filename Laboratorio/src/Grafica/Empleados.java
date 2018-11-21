@@ -1,6 +1,7 @@
 package Grafica;
 
 import Clinica.Administrativo;
+import Clinica.Afiliado;
 import Clinica.ArrayListPersona;
 import Clinica.Chofer;
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import Clinica.Empleado;
 import Clinica.Enfermero;
 import Clinica.GestorPersona;
 import Clinica.Medico;
+import Clinica.Persona;
 import java.awt.Frame;
 import javax.swing.JOptionPane;
 
@@ -16,25 +18,32 @@ import javax.swing.JOptionPane;
 public class Empleados extends javax.swing.JDialog {
     private DefaultListModel listModel = new DefaultListModel();
     private Frame principal1;
-   
+    private ArrayList<Persona>listaauxiliar=new ArrayList();
     private GestorPersona persona;
     Empleados(java.awt.Frame parent, boolean modal, GestorPersona persona) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
         this.persona=persona;
+        iniciar();
         empleados();
-        
-            
-        
-        
     }
-    
+    public void iniciar(){
+        for (int i = 0; i < persona.getCuentas().size(); i++) {
+            Object auxiliar=persona.getCuentas().get(i);
+            
+            if(auxiliar.getClass()!=Afiliado.class){
+                Empleado auxiliar2=(Empleado) auxiliar;
+                listaauxiliar.add(auxiliar2);
+                listaauxiliar.size();
+            }      
+        }
+    }
     
     public void empleados(){
         int i=0;
-        String [][] matris= new String[persona.getCuentas().size()][5];
-        for(Object object:persona.getCuentas()){               
+        String [][] matris= new String[listaauxiliar.size()][5];
+        for(Object object:listaauxiliar){               
             if(object.getClass()==Medico.class){
                 Medico medico=new Medico();
                 medico=(Medico)object;              
