@@ -28,7 +28,9 @@ public class ListadePagoAfiliados2 extends javax.swing.JDialog {
         this.jDateChooser3=jDateChooser3;
         this.jTextField3=jTextField3;
         for (int i = 0; i < gestor.getCuentas().size(); i++) {
-            lista.addElement(gestor.getCuentas().get(i));
+            if(gestor.getCuentas().get(i).getClass()==Afiliado.class){
+                lista.addElement(gestor.getCuentas().get(i));
+            }
         }
         jList1.setModel(lista);
         setLocationRelativeTo(parent);
