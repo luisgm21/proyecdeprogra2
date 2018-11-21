@@ -288,6 +288,8 @@ public class Emergencia extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        try{
+            
         fechaActual.set(Calendar.MONTH,fechaActual.get(Calendar.MONTH)-2);
         switch (emergencia.getPaciente().getFechaultpago().compareTo(fechaActual)){ 
             case 1: 
@@ -302,6 +304,10 @@ public class Emergencia extends javax.swing.JDialog {
                         JOptionPane.showMessageDialog(rootPane, "Lleva mas de 2 meses de pago atrasado");  
                         jButton2.setVisible(false);
                     break; 
+        }
+        }
+        catch(java.lang.NullPointerException ex){
+            JOptionPane.showMessageDialog(rootPane, "No hay un afiliado seleccionado");  
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 

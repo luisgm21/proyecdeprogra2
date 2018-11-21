@@ -101,15 +101,15 @@ public class SeleccionarSolicitud extends javax.swing.JDialog {
         if (s!=null){
         jTextField1.setText(s.getGrupo().getMedico().getNombre());
         jTextField2.setText(s.getGrupo().getIdcuadrilla());
-        
-        }
-        
         solicitud.setDomicilio(s.getDomicilio());
         solicitud.setFecha(s.getFecha());
         solicitud.setGrupo(s.getGrupo());
         solicitud.setPaciente(s.getPaciente());
         solicitud.setReceptor(s.getReceptor());
         solicitud.setTipo(s.getTipo());
+        }
+        
+        
         
         
         this.setVisible(false);

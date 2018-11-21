@@ -18,7 +18,8 @@ public class Pago extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.persona=persona;
-        setLocationRelativeTo(parent);        
+        setLocationRelativeTo(parent);   
+        jButton2.setVisible(false);
     }
    
     @SuppressWarnings("unchecked")
@@ -170,10 +171,19 @@ public class Pago extends javax.swing.JDialog {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.afiliado.setFechaultpago(this.jDateChooser1.getCalendar());
+        jButton2.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try{
+            
+        
         this.jDateChooser3.setCalendar(afiliado.getFechaultpago());
+        jButton2.setVisible(true);
+       }
+        catch(java.lang.NullPointerException ex){
+            JOptionPane.showMessageDialog(rootPane, "No hay seleccionado ningun afiliado");
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
     
     private void setNombreCuentaContable(){

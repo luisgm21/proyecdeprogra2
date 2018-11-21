@@ -103,12 +103,13 @@ public class AfiliadoEmergencia extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Afiliado s = jList1.getSelectedValue();
-        jDateChooser1.setCalendar(s.getFechaultpago());         
+                
         if (s!=null){
         jTextField6.setText(s.getNombre());
-        
-        }
+        jDateChooser1.setCalendar(s.getFechaultpago()); 
         emergencia.setPaciente(s);
+        }
+        
         
         
         this.setVisible(false);   

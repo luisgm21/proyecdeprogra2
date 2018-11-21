@@ -39,6 +39,7 @@ public class AltaEmpleado2 extends javax.swing.JDialog {
                    if(aux==1){
                    num=Integer.parseInt(telf.getText());
                    num2=Integer.parseInt(Dni.getText());
+                   this.jButton1.setVisible(true);
 
                    }
 
@@ -46,7 +47,7 @@ public class AltaEmpleado2 extends javax.swing.JDialog {
                 }
 
             }
-            this.jButton1.setVisible(true);
+            
         }
         catch(java.lang.NumberFormatException ex){
             JOptionPane.showMessageDialog(rootPane, "Verifique Telefono/dni");

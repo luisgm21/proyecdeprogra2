@@ -102,10 +102,11 @@ public class ListadePagoAfiliados2 extends javax.swing.JDialog {
        
         Afiliado s = jList1.getSelectedValue();
         Integer suma=500;
+        
+        if (s!=null){
         for(int i =0; i<s.leerFamilia().size(); i++){
             suma=suma + 100;
         }
-        if (s!=null){
         jTextField6.setText(s.getDni());       
         this.jDateChooser1.setCalendar(s.getFechaActual());
             
