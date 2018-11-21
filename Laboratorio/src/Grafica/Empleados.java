@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 public class Empleados extends javax.swing.JDialog {
     private DefaultListModel listModel = new DefaultListModel();
-    private Frame principal1;
+    
     private ArrayList<Persona>listaauxiliar=new ArrayList();
     private GestorPersona persona;
     Empleados(java.awt.Frame parent, boolean modal, GestorPersona persona) {
