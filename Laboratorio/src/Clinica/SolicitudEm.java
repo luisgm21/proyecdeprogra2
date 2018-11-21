@@ -1,6 +1,8 @@
 
 package Clinica;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 
 public class SolicitudEm {
@@ -8,12 +10,20 @@ public class SolicitudEm {
     private Cuadrilla grupo;
     private String tipo;
     private String domicilio;
-    
+    Calendar fecha = GregorianCalendar.getInstance(); 
     private Administrativo receptor;
     //id,nombre,domicilio,tipoemergencia));
     
     public SolicitudEm(){
 
+    }
+
+    public void setFecha(Calendar fecha) {
+        this.fecha = fecha;
+    }
+
+    public Calendar getFecha() {
+        return fecha;
     }
 
     public SolicitudEm(Afiliado paciente, Cuadrilla grupo, String direccion, String tipo, Administrativo receptor){

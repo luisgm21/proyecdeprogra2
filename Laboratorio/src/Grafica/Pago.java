@@ -18,9 +18,7 @@ public class Pago extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.persona=persona;
-        setLocationRelativeTo(parent);   
-        
-        
+        setLocationRelativeTo(parent);        
     }
    
     @SuppressWarnings("unchecked")

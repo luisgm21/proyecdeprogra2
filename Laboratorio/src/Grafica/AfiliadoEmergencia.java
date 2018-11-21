@@ -4,7 +4,12 @@ package Grafica;
 import Clinica.Afiliado;
 import Clinica.GestorPersona;
 import Clinica.SolicitudEm;
+import com.toedter.calendar.JDateChooser;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
@@ -13,12 +18,17 @@ public class AfiliadoEmergencia extends javax.swing.JDialog {
     private DefaultListModel lista = new DefaultListModel();
     JTextField jTextField6;
     private SolicitudEm emergencia;
-    public AfiliadoEmergencia(java.awt.Frame parent, boolean modal,JTextField jTextField6,GestorPersona gestor, SolicitudEm emergencia) {
+    private JDateChooser jDateChooser1;
+    
+    Calendar fechaActual = GregorianCalendar.getInstance();
+    public AfiliadoEmergencia(java.awt.Frame parent, boolean modal,JTextField jTextField6,GestorPersona gestor, SolicitudEm emergencia,JDateChooser jDateChooser1) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
         this.jTextField6=jTextField6;
         this.emergencia=emergencia;
+        this.jDateChooser1=jDateChooser1;
+        
         for (int i = 0; i < gestor.getCuentas().size(); i++) {
             if(gestor.getCuentas().get(i).getClass()==Afiliado.class){
                 lista.addElement(gestor.getCuentas().get(i));
@@ -91,10 +101,13 @@ public class AfiliadoEmergencia extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Afiliado s = jList1.getSelectedValue();
+        jDateChooser1.setCalendar(s.getFechaultpago());         
         if (s!=null){
-        jTextField6.setText(s.getDni());
+        jTextField6.setText(s.getNombre());
         }
         emergencia.setPaciente(s);
+        
+        
         this.setVisible(false);   
     }//GEN-LAST:event_jButton1ActionPerformed
 
