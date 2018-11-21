@@ -12,6 +12,7 @@ public class SolicitudEm {
     private String domicilio;
     Calendar fecha = GregorianCalendar.getInstance(); 
     private Administrativo receptor;
+    
     //id,nombre,domicilio,tipoemergencia));
     
     public SolicitudEm(){
@@ -108,6 +109,11 @@ public class SolicitudEm {
    
     public void setReceptor(Administrativo receptor) {
         this.receptor = receptor;
+    }
+
+    
+     public String toString(){
+        return this.getPaciente()+ " " + this.getDomicilio();
     }
 
     
