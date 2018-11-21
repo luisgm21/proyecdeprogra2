@@ -15,7 +15,7 @@ public class Afiliado extends Persona{
     
     Calendar fechaultpago;
     private ArrayList<Persona>familia=new ArrayList();
-    private int numdefam;
+    private Integer numdefam;
     private PagoAfiliado pago;
     Calendar fechaActual = GregorianCalendar.getInstance(); 
     //DateTimeFormatter miFormatFecha = DateTimeFormatter.ofPattern("d/MM/yyyy H:mm:ss");
@@ -69,7 +69,7 @@ public class Afiliado extends Persona{
         familia.add(familiar);
         this.numdefam=familia.size();
     }
-    public void delete(String numero) {
+    public void eliminarFamiliar(String numero) {
         Persona existe = buscarFamiliar(numero);
         if (existe != null) {
             familia.remove(existe);                     
@@ -99,6 +99,10 @@ public class Afiliado extends Persona{
         }
        // throw new CuentaInexistenteException("Cuenta Inexistente: "+numero);
           return null;
+    }
+    public Float Pago(){
+        pago=new PagoAfiliado(numdefam);
+        return pago.calculoPago();
     }
 
     /*  public void CapturarDatos(){

@@ -172,6 +172,8 @@ public class Pago extends javax.swing.JDialog {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         this.afiliado.setFechaultpago(this.jDateChooser1.getCalendar());
         jButton2.setVisible(false);
+        JOptionPane.showMessageDialog(null,"Pago Realizado");
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

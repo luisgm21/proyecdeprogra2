@@ -186,7 +186,7 @@ public class ModificarFamiliar extends javax.swing.JDialog {
         if(btn_si.isSelected()){
             try{
                 Persona modificado=new Persona(this.text_nombre.getText(),this.text_DNI.getText(),this.text_telefono.getText(),this.text_direccion.getText(),Integer.parseInt(this.text_edad.getText()));
-                afiliado.delete(familiar.getDni());
+                afiliado.eliminarFamiliar(familiar.getDni());
                 afiliado.agregarFamiliar(modificado);
                 this.setVisible(false);
             }

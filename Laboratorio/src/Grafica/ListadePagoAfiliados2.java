@@ -99,21 +99,13 @@ public class ListadePagoAfiliados2 extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
+
         Afiliado s = jList1.getSelectedValue();
-        Integer suma=500;
-        
-        if (s!=null){
-        for(int i =0; i<s.leerFamilia().size(); i++){
-            suma=suma + 100;
-        }
+        s.Pago();
         jTextField6.setText(s.getDni());       
-        this.jDateChooser1.setCalendar(s.getFechaActual());
-            
-        jTextField3.setText(suma.toString());
-        
-        }
-        this.setVisible(false);  
+        this.jDateChooser1.setCalendar(s.getFechaActual());  
+        jTextField3.setText(s.Pago().toString());
+        this.setVisible(false); 
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

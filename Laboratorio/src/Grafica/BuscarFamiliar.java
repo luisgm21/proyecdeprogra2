@@ -193,7 +193,7 @@ public class BuscarFamiliar extends javax.swing.JDialog {
     }//GEN-LAST:event_btn_agregarActionPerformed
 
     private void btn_eliminarfamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarfamActionPerformed
-       afiliado.delete(familiar.getDni());
+       afiliado.eliminarFamiliar(familiar.getDni());
        reset();
     }//GEN-LAST:event_btn_eliminarfamActionPerformed
 
