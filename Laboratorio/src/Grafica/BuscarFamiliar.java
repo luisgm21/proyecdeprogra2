@@ -17,9 +17,15 @@ public class BuscarFamiliar extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.afiliado=afiliado;
+        setLocationRelativeTo(parent);
+        reset();
     }
 
-  
+    public void reset(){
+        btn_eliminarfam.setVisible(false);
+        btn_modificar.setVisible(false);
+        
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -33,6 +39,7 @@ public class BuscarFamiliar extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         btn_agregar = new javax.swing.JButton();
         btn_eliminarfam = new javax.swing.JButton();
+        btn_modificar = new javax.swing.JToggleButton();
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -87,6 +94,13 @@ public class BuscarFamiliar extends javax.swing.JDialog {
             }
         });
 
+        btn_modificar.setText("Modificar Familiar");
+        btn_modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modificarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -94,6 +108,7 @@ public class BuscarFamiliar extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_modificar)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -122,7 +137,9 @@ public class BuscarFamiliar extends javax.swing.JDialog {
                 .addComponent(btn_agregar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btn_eliminarfam)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_modificar)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -142,6 +159,8 @@ public class BuscarFamiliar extends javax.swing.JDialog {
     private void btn_seleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_seleccionarActionPerformed
         try{
             this.familiar= afiliado.getFamiliar(this.jTextField1.getText().trim());
+            this.btn_eliminarfam.setVisible(true);
+            this.btn_modificar.setVisible(true);
             familiar.ImprimirDatos();
         }
         catch(java.lang.NullPointerException ex){
@@ -174,14 +193,21 @@ public class BuscarFamiliar extends javax.swing.JDialog {
     }//GEN-LAST:event_btn_agregarActionPerformed
 
     private void btn_eliminarfamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_eliminarfamActionPerformed
-        // TODO add your handling code here:
+       afiliado.delete(familiar.getDni());
+       reset();
     }//GEN-LAST:event_btn_eliminarfamActionPerformed
+
+    private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
+       new ModificarFamiliar(principal1,true,afiliado,familiar).setVisible(true);
+       reset();
+    }//GEN-LAST:event_btn_modificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agregar;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_eliminarfam;
+    private javax.swing.JToggleButton btn_modificar;
     private javax.swing.JButton btn_seleccionar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

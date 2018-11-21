@@ -4,6 +4,7 @@ package Grafica;
 import Clinica.Afiliado;
 import Clinica.GestorPersona;
 import Clinica.Persona;
+import Excepciones.PersonaExistenteException;
 import javax.swing.JOptionPane;
 
 public class AltaFamiliar extends javax.swing.JDialog {
@@ -202,16 +203,22 @@ public void validar(){
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_aceptarActionPerformed
-        Persona familiar=new Persona(this.text_nombre.getText(),this.text_DNI.getText(),this.text_telefono.getText(),this.text_direccion.getText(),Integer.parseInt(this.text_edad.getText()));
+      try{
+          Persona familiar=new Persona(this.text_nombre.getText(),this.text_DNI.getText(),this.text_telefono.getText(),this.text_direccion.getText(),Integer.parseInt(this.text_edad.getText()));
         if(btn_si.isSelected()){
            afiliado.agregarFamiliar(familiar);
+           JOptionPane.showMessageDialog(rootPane, "Familiar cargado correctamente");
         }else if(btn_no.isSelected()){
             afiliado.agregarFamiliar(familiar);
             /* for (int i = 0; i < afiliado.leerFamilia().size(); i++) {
             System.out.println(afiliado.leerFamilia().get(i));
             }*/ // Metodo para corroborar de que se ingresan correctamente los familiares
             //persona.agregarCuenta(afiliado);
+            JOptionPane.showMessageDialog(rootPane, "Familiar cargado correctamente");
             this.setVisible(false);
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Familiar no cargado"+" "+"No selecciono ninguna opcion");
         }
         text_nombre.setText("");
         text_DNI.setText("");
@@ -219,6 +226,10 @@ public void validar(){
         text_direccion.setText("");
         text_edad.setText("");
         this.btn_aceptar.setVisible(false);
+      }
+       catch(PersonaExistenteException ex){
+           JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Alerta",0);
+       }
     }//GEN-LAST:event_btn_aceptarActionPerformed
 
     private void validarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validarActionPerformed

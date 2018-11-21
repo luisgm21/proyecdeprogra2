@@ -12,6 +12,7 @@ public class ListaFamiliar extends javax.swing.JDialog {
     public ListaFamiliar(java.awt.Frame parent, boolean modal,JTextField jTextField6,Afiliado afiliado) {
         super(parent, modal);
         initComponents();
+        setLocationRelativeTo(parent);
         this.jTextField6=jTextField6;
         for (int i = 0; i < afiliado.leerFamilia().size(); i++) {
             lista.addElement(afiliado.leerFamilia().get(i));

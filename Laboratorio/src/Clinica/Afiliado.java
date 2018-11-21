@@ -72,8 +72,7 @@ public class Afiliado extends Persona{
     public void delete(String numero) {
         Persona existe = buscarFamiliar(numero);
         if (existe != null) {
-            familia.remove(existe);            
-            return;
+            familia.remove(existe);                     
         }        
        
     }
