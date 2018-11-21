@@ -38,6 +38,7 @@ public class Principal1 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         opcion = new javax.swing.JComboBox<>();
         opcion1 = new javax.swing.JComboBox<>();
+        opcion2 = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -87,6 +88,13 @@ public class Principal1 extends javax.swing.JFrame {
             }
         });
 
+        opcion2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Baja", "Medico", "Enfermero", "Chofer", "Administrativo" }));
+        opcion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opcion2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -99,6 +107,8 @@ public class Principal1 extends javax.swing.JFrame {
                 .addComponent(opcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(opcion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(opcion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -109,7 +119,8 @@ public class Principal1 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(opcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(opcion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(opcion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(opcion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         jButton3.setText("Realizar Pago");
@@ -217,6 +228,21 @@ public class Principal1 extends javax.swing.JFrame {
         new Diagnostico(this,true,gestorcuad,gestorsoli).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void opcion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opcion2ActionPerformed
+        if (opcion2.getSelectedItem()=="Medico"){
+           new BajaMedico(this,true,gestor,gestorcuad).setVisible(true);
+        } 
+        if (opcion2.getSelectedItem()=="Enfermero"){
+           new BajaEnfermero(this,true,gestor,gestorcuad).setVisible(true);
+        } 
+        if (opcion2.getSelectedItem()=="Chofer"){
+           new BajaChofer(this,true,gestor,gestorcuad).setVisible(true);
+        } 
+        if (opcion2.getSelectedItem()=="Administrativo"){
+           new BajaAdministrativo(this,true,gestor,gestorcuad).setVisible(true);
+        } 
+    }//GEN-LAST:event_opcion2ActionPerformed
+
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -229,6 +255,7 @@ public class Principal1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JComboBox<String> opcion;
     private javax.swing.JComboBox<String> opcion1;
+    private javax.swing.JComboBox<String> opcion2;
     // End of variables declaration//GEN-END:variables
   
 }
