@@ -35,7 +35,7 @@ public class ArrayListCuadrilla implements CuadrillaDAO {
 
     @Override
     public void insert(Cuadrilla insertRecord) {
-        Cuadrilla existe = findByPK(insertRecord.getIdcuadrilla());
+        Cuadrilla existe = findByPK(insertRecord.getVehiculo().getPatente());
         if (existe != null) {
             throw new PersonaExistenteException("Cuadrilla existente " + existe.getIdcuadrilla());
         }

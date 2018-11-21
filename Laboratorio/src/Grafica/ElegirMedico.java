@@ -3,6 +3,7 @@ package Grafica;
 
 import Clinica.Afiliado;
 import Clinica.Cuadrilla;
+import Clinica.GestorCuadrilla;
 import Clinica.GestorPersona;
 import Clinica.Medico;
 import javax.swing.DefaultListModel;
@@ -14,16 +15,28 @@ public class ElegirMedico extends javax.swing.JDialog {
     private DefaultListModel lista = new DefaultListModel();
     JTextField jTextField6;
     private Cuadrilla cuadrilla;
-    public ElegirMedico(java.awt.Frame parent, boolean modal, JTextField jTextField1, GestorPersona gestor, Cuadrilla cuadrilla) {
+    public ElegirMedico(java.awt.Frame parent, boolean modal, JTextField jTextField1, GestorPersona gestor, Cuadrilla cuadrilla, GestorCuadrilla cuad) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(parent);
         this.jTextField6=jTextField1;
         this.cuadrilla=cuadrilla;
-        for (int i = 0; i < gestor.getCuentas().size(); i++) {
-            if(gestor.getCuentas().get(i).getClass()==Medico.class){
-                lista.addElement(gestor.getCuentas().get(i));
+        for(Object object:gestor.getCuentas()){               
+            if(object.getClass()==Medico.class){
+                Medico aux=new Medico();
+                aux=(Medico)object; 
+                if(cuad.getCuentas().isEmpty()){
+                    lista.addElement(aux);
+                }
+                for(Object object1:cuad.getCuentas()){
+                    Cuadrilla aux1 = new Cuadrilla();
+                    aux1=(Cuadrilla)object1;
+                    if(aux1.getMedico().getDni()!= aux.getDni()){
+                        lista.addElement(aux);
+                    }
+                }
             }
+        
             
         }
         jList1.setModel(lista);

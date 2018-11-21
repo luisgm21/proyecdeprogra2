@@ -185,23 +185,23 @@ public class AltaCuadrilla extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ElegirMedico lista= new ElegirMedico(principal1,true,this.jTextField1,persona,cuadrilla);
+        ElegirMedico lista= new ElegirMedico(principal1,true,this.jTextField1,persona,cuadrilla,drilla);
         lista.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ElegirChofer lista= new ElegirChofer(principal1,true,this.jTextField2,persona,cuadrilla);
+        ElegirChofer lista= new ElegirChofer(principal1,true,this.jTextField2,persona,cuadrilla,drilla);
         lista.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        ElegirEnfermero lista= new ElegirEnfermero(principal1,true,this.jTextField3,persona,cuadrilla);
+        ElegirEnfermero lista= new ElegirEnfermero(principal1,true,this.jTextField3,persona,cuadrilla,drilla);
         lista.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       ElegirVehiculo lista= new ElegirVehiculo(principal1,true,this.jTextField4,movil,cuadrilla);
+       ElegirVehiculo lista= new ElegirVehiculo(principal1,true,this.jTextField4,movil,cuadrilla,drilla);
         lista.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
