@@ -24,6 +24,14 @@ public class Cuadrilla {
        
     }
 
+    public Cuadrilla(String idcuadrilla, Medico medico, Chofer chofer, Enfermero enfermero, Ambulancia vehiculo) {
+        this.idcuadrilla = idcuadrilla;
+        this.medico = medico;
+        this.chofer = chofer;
+        this.enfermero = enfermero;
+        this.vehiculo = vehiculo;
+    }
+
     
 
     public void setCuadrilla(String cuadrilla) {

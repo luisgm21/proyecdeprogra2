@@ -27,12 +27,41 @@ public class AltaAfiliados extends javax.swing.JDialog {
         this.jDateChooser1.setCalendar(fechaActual);
     }
      public void validar(){
+<<<<<<< HEAD
         
          if(this.nomb.getText().isEmpty() || this.direc.getText().isEmpty() ||this.eda.getText().isEmpty() || this.telf.getText().isEmpty() || this.Dni.getText().isEmpty()){
             JOptionPane.showMessageDialog(rootPane, "Debe completar todos los campos de texto");  
+=======
+         Integer num;
+         Integer num2;
+         int aux=1;
+        try{
+            
+         
+            if(this.nomb.getText().isEmpty() || this.direc.getText().isEmpty() ||this.eda.getText().isEmpty() || this.telf.getText().isEmpty() || this.Dni.getText().isEmpty()){
+                JOptionPane.showMessageDialog(rootPane, "Debe completar todos los campos de texto");  
+            }
+            else{
+               num=Integer.parseInt(eda.getText());
+               if(num>90 || num<18){
+                   JOptionPane.showMessageDialog(rootPane, "Edad incorrecta");  
+               }
+               else{
+                   if(aux==1){
+                   num=Integer.parseInt(telf.getText());
+                   num2=Integer.parseInt(Dni.getText());
+
+                   }
+
+
+                }
+
+            }
+            this.jButton2.setVisible(true);
+>>>>>>> 4aae63cdccda1b9a3dbeb808d791ae2cc83014c4
         }
-        else{
-           this.jButton2.setVisible(true);
+        catch(java.lang.NumberFormatException ex){
+            JOptionPane.showMessageDialog(rootPane, "Verifique Telefono/dni");
         }
         
     }

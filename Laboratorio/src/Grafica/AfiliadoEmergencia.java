@@ -17,6 +17,7 @@ public class AfiliadoEmergencia extends javax.swing.JDialog {
 
     private DefaultListModel lista = new DefaultListModel();
     JTextField jTextField6;
+    
     private SolicitudEm emergencia;
     private JDateChooser jDateChooser1;
     
@@ -26,6 +27,7 @@ public class AfiliadoEmergencia extends javax.swing.JDialog {
         initComponents();
         setLocationRelativeTo(parent);
         this.jTextField6=jTextField6;
+        
         this.emergencia=emergencia;
         this.jDateChooser1=jDateChooser1;
         
@@ -104,6 +106,7 @@ public class AfiliadoEmergencia extends javax.swing.JDialog {
         jDateChooser1.setCalendar(s.getFechaultpago());         
         if (s!=null){
         jTextField6.setText(s.getNombre());
+        
         }
         emergencia.setPaciente(s);
         
