@@ -107,6 +107,7 @@ public class SeleccionarSolicitud extends javax.swing.JDialog {
         solicitud.setPaciente(s.getPaciente());
         solicitud.setReceptor(s.getReceptor());
         solicitud.setTipo(s.getTipo());
+        soli.eliminarCuenta(s.getDomicilio());
         }
         
         
