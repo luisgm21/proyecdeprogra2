@@ -17,6 +17,41 @@ public class AltaEmpleado2 extends javax.swing.JDialog {
         initComponents();
         this.persona=persona;
         setLocationRelativeTo(parent);
+        jButton1.setVisible(false);
+    }
+    
+    public void validar(){
+         Integer num;
+         Integer num2;
+         int aux=1;
+        try{
+            
+         
+            if(this.nomb.getText().isEmpty() || this.direc.getText().isEmpty() ||this.eda.getText().isEmpty() || this.telf.getText().isEmpty() || this.Dni.getText().isEmpty()){
+                JOptionPane.showMessageDialog(rootPane, "Debe completar todos los campos de texto");  
+            }
+            else{
+               num=Integer.parseInt(eda.getText());
+               if(num>90 || num<18){
+                   JOptionPane.showMessageDialog(rootPane, "Edad incorrecta");  
+               }
+               else{
+                   if(aux==1){
+                   num=Integer.parseInt(telf.getText());
+                   num2=Integer.parseInt(Dni.getText());
+
+                   }
+
+
+                }
+
+            }
+            this.jButton1.setVisible(true);
+        }
+        catch(java.lang.NumberFormatException ex){
+            JOptionPane.showMessageDialog(rootPane, "Verifique Telefono/dni");
+        }
+        
     }
 
    
@@ -33,12 +68,13 @@ public class AltaEmpleado2 extends javax.swing.JDialog {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         nomb = new java.awt.TextField();
-        dni = new java.awt.TextField();
+        Dni = new java.awt.TextField();
         telf = new java.awt.TextField();
         direc = new java.awt.TextField();
         eda = new java.awt.TextField();
         opcion = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -66,6 +102,13 @@ public class AltaEmpleado2 extends javax.swing.JDialog {
             }
         });
 
+        jButton2.setText("Validar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -78,7 +121,10 @@ public class AltaEmpleado2 extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addComponent(opcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton1)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jButton2)
+                            .addGap(32, 32, 32)
+                            .addComponent(jButton1))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
@@ -95,7 +141,7 @@ public class AltaEmpleado2 extends javax.swing.JDialog {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(nomb, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                                 .addComponent(telf, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(dni, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                                .addComponent(Dni, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                                 .addComponent(eda, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(direc, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -113,7 +159,7 @@ public class AltaEmpleado2 extends javax.swing.JDialog {
                                     .addComponent(nomb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel3))
-                            .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4))
                     .addComponent(telf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -131,9 +177,11 @@ public class AltaEmpleado2 extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(opcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(87, 87, 87))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(64, 64, 64))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -153,19 +201,19 @@ public class AltaEmpleado2 extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
             if(opcion.getSelectedItem().toString()=="Medico"){
-                Medico medico = new Medico(this.nomb.getText(), this.dni.getText(), this.telf.getText(), this.direc.getText(), Integer.parseInt(this.eda.getText()));
+                Medico medico = new Medico(this.nomb.getText(), this.Dni.getText(), this.telf.getText(), this.direc.getText(), Integer.parseInt(this.eda.getText()));
                 persona.agregarCuenta(medico);
             }
             if(opcion.getSelectedItem().toString()=="Enfermero"){
-                Enfermero enfermero = new Enfermero(this.nomb.getText(), this.dni.getText(), this.telf.getText(), this.direc.getText(), Integer.parseInt(this.eda.getText()));
+                Enfermero enfermero = new Enfermero(this.nomb.getText(), this.Dni.getText(), this.telf.getText(), this.direc.getText(), Integer.parseInt(this.eda.getText()));
                 persona.agregarCuenta(enfermero);
             }
             if(opcion.getSelectedItem().toString()=="Chofer"){
-                Chofer chofer = new Chofer(this.nomb.getText(), this.dni.getText(), this.telf.getText(), this.direc.getText(), Integer.parseInt(this.eda.getText()));
+                Chofer chofer = new Chofer(this.nomb.getText(), this.Dni.getText(), this.telf.getText(), this.direc.getText(), Integer.parseInt(this.eda.getText()));
                 persona.agregarCuenta(chofer);
             }
             if(opcion.getSelectedItem().toString()=="Administrativo"){
-                Administrativo administrativo = new Administrativo(this.nomb.getText(), this.dni.getText(), this.telf.getText(), this.direc.getText(), Integer.parseInt(this.eda.getText()));
+                Administrativo administrativo = new Administrativo(this.nomb.getText(), this.Dni.getText(), this.telf.getText(), this.direc.getText(), Integer.parseInt(this.eda.getText()));
                 persona.agregarCuenta(administrativo);
             }
             JOptionPane.showMessageDialog(rootPane, "Empleado cargado correctamente");
@@ -173,7 +221,7 @@ public class AltaEmpleado2 extends javax.swing.JDialog {
             direc.setText("");
             eda.setText("");
             telf.setText("");
-            dni.setText("");    
+            Dni.setText("");    
         }
         catch(PersonaExistenteException ex){
             JOptionPane.showMessageDialog(rootPane, ex.getMessage(), "Alerta",0);
@@ -181,17 +229,23 @@ public class AltaEmpleado2 extends javax.swing.JDialog {
         catch(java.lang.NumberFormatException ex){
             JOptionPane.showMessageDialog(null, "no se permiten letras");
         }
+        jButton1.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        validar();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.TextField Dni;
     private java.awt.TextField direc;
-    private java.awt.TextField dni;
     private java.awt.TextField eda;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
