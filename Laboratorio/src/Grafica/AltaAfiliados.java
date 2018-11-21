@@ -27,7 +27,8 @@ public class AltaAfiliados extends javax.swing.JDialog {
         this.jDateChooser1.setCalendar(fechaActual);
     }
      public void validar(){
-        if(this.nomb.getText().isEmpty() || this.direc.getText().isEmpty() ||this.eda.getText().isEmpty() || this.telf.getText().isEmpty() || this.Dni.getText().isEmpty()){
+        
+         if(this.nomb.getText().isEmpty() || this.direc.getText().isEmpty() ||this.eda.getText().isEmpty() || this.telf.getText().isEmpty() || this.Dni.getText().isEmpty()){
             JOptionPane.showMessageDialog(rootPane, "Debe completar todos los campos de texto");  
         }
         else{
@@ -271,7 +272,7 @@ public class AltaAfiliados extends javax.swing.JDialog {
             Afiliado afiliado=new Afiliado(this.nomb.getText(),this.Dni.getText(),this.telf.getText(),this.direc.getText(),Integer.parseInt(this.eda.getText()));  
             afiliado.setFechaultpago(fechaActual);
             if(btn_si.isSelected()){
-                new AltaFamiliar(principal1,true,persona,afiliado).setVisible(true);               
+                new AltaFamiliar(principal1,true,afiliado).setVisible(true);               
                 persona.agregarCuenta(afiliado);
                JOptionPane.showMessageDialog(rootPane, "Afiliado cargado correctamente");
                clean();

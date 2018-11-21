@@ -1,6 +1,8 @@
 
 package Clinica;
 
+import javax.swing.JOptionPane;
+
 
 public class Persona{
    String nombre;
@@ -67,4 +69,7 @@ public class Persona{
      public String toString(){
         return this.getNombre()+" "+this.getDni();
     }
+     public void ImprimirDatos(){
+        JOptionPane.showMessageDialog(null,"El Nombre del afiliado es: "+nombre+"\n Su edad es: "+edad+"\n su Direccion: "+direccion+"\n su dni: "+dni+"\n Su telefono: "+telefono,"Mensaje" , JOptionPane.PLAIN_MESSAGE);
+    } 
 }

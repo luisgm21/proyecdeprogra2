@@ -1,6 +1,7 @@
 
 package Clinica;
 
+import Excepciones.PersonaExistenteException;
 import Grafica.AltaAfiliados;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -61,9 +62,30 @@ public class Afiliado extends Persona{
         //fechaultpago=LocalDateTime.parse("18/11/2018 00:00:00", miFormatFecha);
     }
     public void agregarFamiliar(Persona familiar){
+        Persona existe=buscarFamiliar(familiar.getDni());
+        if(existe!=null){
+           throw new PersonaExistenteException("persona existente " + existe.getNombre());
+        }
         familia.add(familiar);
         this.numdefam=familia.size();
-        
+    }
+    public void delete(String numero) {
+        Persona existe = buscarFamiliar(numero);
+        if (existe != null) {
+            familia.remove(existe);            
+            return;
+        }        
+       
+    }
+    public Persona buscarFamiliar(String vnumero)  {
+        Persona resultado = null;
+         for (Object persona : familia) {
+            Persona c = (Persona)persona;
+            if (c.getDni().equals(vnumero)==true){
+                resultado=c;
+            }
+        }
+        return resultado;
     }
     public void setFamilia(ArrayList familia){
         this.familia=familia;
@@ -71,16 +93,21 @@ public class Afiliado extends Persona{
     public ArrayList leerFamilia(){
         return familia;
     }
+    public Persona getFamiliar(String numero) {
+        Persona cuenta = buscarFamiliar(numero);
+        if (cuenta!=null){
+            return cuenta;
+        }
+       // throw new CuentaInexistenteException("Cuenta Inexistente: "+numero);
+          return null;
+    }
+
     /*  public void CapturarDatos(){
     super.setNombre(AltaAfiliados.nomb.getText());
     super.setDireccion(AltaAfiliados.direc.getText());
     super.setEdad(Integer.parseInt(AltaAfiliados.eda.getText()));
     super.setTelefono(AltaAfiliados.telf.getText());
     super.setDni(AltaAfiliados.Dni.getText());
-    }*/
-    public void ImprimirDatos(){
-        JOptionPane.showMessageDialog(null,"El Nombre del afiliado es: "+nombre+"\n Su edad es: "+edad+"\n su Direccion: "+direccion+"\n su dni: "+dni+"\n Su telefono: "+telefono,"Mensaje" , JOptionPane.PLAIN_MESSAGE);
-    } 
-    
+    }*/  
 }
 

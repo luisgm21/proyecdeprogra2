@@ -7,13 +7,12 @@ import Clinica.Persona;
 import javax.swing.JOptionPane;
 
 public class AltaFamiliar extends javax.swing.JDialog {
-    private GestorPersona persona;
+    //private GestorPersona persona;
     private Afiliado afiliado;
    
-    public AltaFamiliar(java.awt.Frame parent, boolean modal,GestorPersona persona,Afiliado afiliado) {
+    public AltaFamiliar(java.awt.Frame parent, boolean modal,Afiliado afiliado) {
         super(parent, modal);
         initComponents();
-        this.persona=persona;
         this.afiliado=afiliado;
         setLocationRelativeTo(parent);
         grupo1.add(btn_no);

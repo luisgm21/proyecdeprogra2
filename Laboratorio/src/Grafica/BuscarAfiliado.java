@@ -33,7 +33,8 @@ public class BuscarAfiliado extends javax.swing.JDialog {
         btn_mostrar.setVisible(false);
         btn_modificar.setVisible(false);
         btn_eliminar.setVisible(false);
-        btn_agregar.setVisible(false);
+        btn_familia.setVisible(false);
+        familia.setVisible(false);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -48,7 +49,8 @@ public class BuscarAfiliado extends javax.swing.JDialog {
         btn_mostrar = new javax.swing.JButton();
         btn_eliminar = new javax.swing.JButton();
         btn_modificar = new javax.swing.JButton();
-        btn_agregar = new javax.swing.JButton();
+        familia = new javax.swing.JLabel();
+        btn_familia = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -99,10 +101,12 @@ public class BuscarAfiliado extends javax.swing.JDialog {
             }
         });
 
-        btn_agregar.setText("Agregar Familiar");
-        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
+        familia.setText("Familia");
+
+        btn_familia.setText("Familia");
+        btn_familia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_agregarActionPerformed(evt);
+                btn_familiaActionPerformed(evt);
             }
         });
 
@@ -111,33 +115,29 @@ public class BuscarAfiliado extends javax.swing.JDialog {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(familia))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btn_buscar)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btn_seleccionar)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_buscar))
+                            .addComponent(btn_seleccionar, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_mostrar, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btn_modificar)
-                            .addComponent(btn_eliminar))))
+                        .addGap(19, 19, 19)
+                        .addComponent(btn_familia)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_mostrar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_modificar)
+                    .addComponent(btn_eliminar))
                 .addGap(22, 22, 22))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(173, 173, 173)
-                .addComponent(btn_agregar)
-                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,16 +151,21 @@ public class BuscarAfiliado extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_seleccionar)
-                    .addComponent(btn_agregar))
+                .addComponent(btn_seleccionar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_mostrar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_modificar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_eliminar)
-                .addGap(21, 21, 21))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btn_modificar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_eliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(familia)
+                        .addGap(13, 13, 13)))
+                .addComponent(btn_familia)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -194,7 +199,8 @@ public class BuscarAfiliado extends javax.swing.JDialog {
             btn_mostrar.setVisible(true);
             btn_modificar.setVisible(true);
             btn_eliminar.setVisible(true);
-            btn_agregar.setVisible(true);
+            btn_familia.setVisible(true);
+            familia.setVisible(true);
        }
        catch(java.lang.NullPointerException ex){
            JOptionPane.showMessageDialog(null, "No selecciono ningun Afiliado");
@@ -222,18 +228,18 @@ public class BuscarAfiliado extends javax.swing.JDialog {
         reset();
     }//GEN-LAST:event_btn_modificarActionPerformed
 
-    private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
-        new AltaFamiliar(principal1,true,persona,afiliado).setVisible(true);
-        reset();
-    }//GEN-LAST:event_btn_agregarActionPerformed
+    private void btn_familiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_familiaActionPerformed
+        new BuscarFamiliar(principal1,true,afiliado).setVisible(true);
+    }//GEN-LAST:event_btn_familiaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_agregar;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_eliminar;
+    private javax.swing.JToggleButton btn_familia;
     private javax.swing.JButton btn_modificar;
     private javax.swing.JButton btn_mostrar;
     private javax.swing.JButton btn_seleccionar;
+    private javax.swing.JLabel familia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
