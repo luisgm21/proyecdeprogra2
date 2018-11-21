@@ -51,7 +51,7 @@ public class ElegirCuadrilla extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(102, 204, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("ELEGIR CUADRILLA"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "ELEGIR CUADRILLA", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 16))); // NOI18N
 
         jScrollPane1.setViewportView(jList1);
 

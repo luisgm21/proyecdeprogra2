@@ -41,7 +41,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="LISTA DE AFILIADOS">
-              <Color PropertyName="color" blue="ff" green="ff" red="ff" type="rgb"/>
+              <Font PropertyName="font" name="Tahoma" size="16" style="1"/>
             </TitledBorder>
           </Border>
         </Property>

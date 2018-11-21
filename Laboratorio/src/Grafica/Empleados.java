@@ -107,7 +107,7 @@ public class Empleados extends javax.swing.JDialog {
         setTitle("Empleados");
 
         jPanel1.setBackground(new java.awt.Color(102, 204, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("LISTA DE EMPLEADOS"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "EMPLEADOS CARGADOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 16))); // NOI18N
         jPanel1.setToolTipText("");
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
